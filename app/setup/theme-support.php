@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @link https://codex.wordpress.org/Automatic_Feed_Links
  */
-add_theme_support( 'automatic-feed-links' );
+// add_theme_support( 'automatic-feed-links' );
 
 /**
  * Support post thumbnails.
@@ -40,7 +40,7 @@ add_theme_support( 'title-tag' );
  *
  * @link https://developer.wordpress.org/reference/functions/add_theme_support/
  */
-add_theme_support( 'menus' );
+// add_theme_support( 'menus' );
 
 /**
  * Support HTML5 markup.
@@ -232,4 +232,4 @@ add_theme_support(
 /**
  * Support WooCommerce.
  */
-add_theme_support( 'woocommerce' );
+// add_theme_support( 'woocommerce' );
