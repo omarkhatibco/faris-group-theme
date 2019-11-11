@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c37d1024091816ce537829e4ea1103c8",
+    "content-hash": "cb1338c6d3814565d3c2b7495804af6f",
     "packages": [
         {
             "name": "composer/installers",
@@ -734,6 +734,61 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
+            "name": "ynacorp/carbon-field-uniqid",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ynacorp/carbon-field-uniqid.git",
+                "reference": "cf895a1da6fd2684896eba919da381581c731be2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ynacorp/carbon-field-uniqid/zipball/cf895a1da6fd2684896eba919da381581c731be2",
+                "reference": "cf895a1da6fd2684896eba919da381581c731be2",
+                "shasum": ""
+            },
+            "require": {
+                "htmlburger/carbon-fields": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "field.php"
+                ],
+                "psr-4": {
+                    "Carbon_Field_UniqID\\": "core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Plamen Kostadinov",
+                    "email": "pkostadinov.2create@gmail.com"
+                },
+                {
+                    "name": "Atanas Angelov",
+                    "email": "atanas.angelov.dev@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Viktor Vasilev",
+                    "email": "liberalcho@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Carbon Fields extension, that adds a number field type.",
+            "homepage": "https://github.com/htmlburger/carbon-field-uniqid/",
+            "keywords": [
+                "carbon-field",
+                "carbon-field-uniqid",
+                "wordpress"
+            ],
+            "time": "2019-04-04T10:04:19+00:00"
         }
     ],
     "packages-dev": [

@@ -47,7 +47,6 @@ register_post_type( 'property', array(
 	'show_in_rest' 				=> true,
 	'_edit_link'          => 'post.php?post=%d',
 	'query_var'           => true,
-	'taxonomies'  				=> array( 'types' ,'locations'),
 	'menu_icon'           => 'dashicons-admin-post',
 	'supports' 						=> array('title', 'thumbnail', 'excerpt', 'editor'),
 	'rewrite'             => array(

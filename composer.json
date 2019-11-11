@@ -27,7 +27,8 @@
     "htmlburger/wpemerge-theme-core": "~0.15.0",
     "htmlburger/carbon-pagination": "^1.1.6",
     "htmlburger/carbon-fields": "^3.1",
-    "iamntz/carbon-fields-urlpicker": "v3.x-dev"
+    "iamntz/carbon-fields-urlpicker": "v3.x-dev",
+    "ynacorp/carbon-field-uniqid": "^3.0"
   },
   "require-dev": {
     "filp/whoops": "^2.2",

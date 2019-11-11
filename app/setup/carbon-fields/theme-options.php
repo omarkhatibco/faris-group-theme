@@ -34,9 +34,59 @@ Container::make( 'theme_options', __( 'Theme Options', 'fgw' ) )
 
 	) );
 
+	
 Container::make( 'theme_options', __( 'Property Options', 'fgw' ) )
 	->set_page_parent('options-general.php')
-	->add_fields( array(
-				Field::make( 'text', 's', __( 'Google Maps API Key', 'fgw' ) ),
+	->add_tab( __( 'Types' ), array(
+				//* Types
+        Field::make('complex', 'fgw_types', __('Types'))
+				->set_collapsed(true)
+				->add_fields(array(
+					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make('uniqid', 'slug'),
+				))
+				->set_header_template('Type: <%- title %>'),
 
-	) );
+        Field::make('complex', 'fgw_contract_types', __('Contract Types'))
+				->set_collapsed(true)
+				->add_fields(array(
+					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make('uniqid', 'slug'),
+				))
+				->set_header_template('Contract Type: <%- title %>'),
+    ) )
+    ->add_tab( __( 'Locations' ), array(
+        	//* Locations
+				Field::make('complex', 'fgw_locations', __('Locations'))
+				->set_collapsed(true)
+				->add_fields(array(
+					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make('uniqid', 'slug'),
+					Field::make('complex', 'fgw_sublocations', __('Sublocations'))
+						->set_collapsed(true)
+						->add_fields(array(
+							Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+							Field::make('uniqid', 'slug'),
+						))
+						->set_header_template('Sublocations: <%- title %>'),
+				))
+				->set_header_template('Location: <%- title %>'),
+    ))
+    ->add_tab( __( 'Amenities' ), array(
+        	//* Locations
+				Field::make('complex', 'fgw_amenities', __('Amenities'))
+				->set_collapsed(true)
+				->add_fields(array(
+					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make('uniqid', 'slug'),
+				))
+				->set_header_template('Amenities: <%- title %>'),
+    ));
+	
+		
+			
+				
+
+			
+
+
