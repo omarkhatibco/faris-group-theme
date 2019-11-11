@@ -14,7 +14,7 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 /*
-Container::make( 'term_meta', __( 'Custom Data', 'app' ) )
+Container::make( 'term_meta', __( 'Custom Data', 'fgw' ) )
 	->where( 'term_taxonomy', '=', 'category' )
 	->add_fields( array(
 		Field::make( 'image', 'crb_img' ),

@@ -14,6 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 register_nav_menus(
 	[
-		'main-menu' => __( 'Main Menu', 'app' ),
+		'main-menu' => __( 'Main Menu', 'fgw' ),
 	]
 );

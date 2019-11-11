@@ -13,9 +13,9 @@ use Carbon_Fields\Container\Container;
 use Carbon_Fields\Field\Field;
 
 // phpcs:disable
-/*
-Container::make( 'post_meta', __( 'Custom Data', 'app' ) )
-	->where( 'post_type', '=', 'page' )
+
+Container::make( 'post_meta', __( 'Custom Data', 'fgw' ) )
+	->where( 'post_type', '=', 'property' )
 	->add_fields( array(
 		Field::make( 'complex', 'crb_my_data' )
 			->add_fields( array(
@@ -27,5 +27,5 @@ Container::make( 'post_meta', __( 'Custom Data', 'app' ) )
 		Field::make( 'image', 'crb_img' ),
 		Field::make( 'file', 'crb_pdf' ),
 	));
-*/
+
 // phpcs:enable
