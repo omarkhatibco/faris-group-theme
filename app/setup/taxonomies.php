@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // phpcs:disable
 
 
+
+
 register_taxonomy(
 	'locations',
 	array( 'property' ),

@@ -13,9 +13,30 @@ use Carbon_Fields\Container\Container;
 use Carbon_Fields\Field\Field;
 
 Container::make( 'theme_options', __( 'Theme Options', 'fgw' ) )
-	->set_page_file( 'app-theme-options.php' )
+	->set_page_parent('options-general.php')
 	->add_fields( array(
 		Field::make( 'text', 'crb_google_maps_api_key', __( 'Google Maps API Key', 'fgw' ) ),
-		Field::make( 'header_scripts', 'crb_header_script', __( 'Header Script', 'fgw' ) ),
-		Field::make( 'footer_scripts', 'crb_footer_script', __( 'Footer Script', 'fgw' ) ),
+		Field::make('complex', 'fgw_socials', __('Social Media'))
+			->set_collapsed(true)
+			->add_fields(array(
+				Field::make('select', 'fgw_social_type', __('Social Media Type', 'mtw'))
+					->set_options(array(
+						'facebook' => 'Facebook',
+						'instagram' => 'Instagram',
+						'twitter' => 'Twitter',
+						'youtube' => 'Youtube',
+						'linkedin' => 'LinkedIn',
+					)),
+				Field::make('urlpicker', 'mtw_social_link', __('URL', 'mtw'))
+					->set_help_text('Enter your Link url'),
+			))
+			->set_header_template('Social Network: <%- mtw_social_type %>')
+
+	) );
+
+Container::make( 'theme_options', __( 'Property Options', 'fgw' ) )
+	->set_page_parent('options-general.php')
+	->add_fields( array(
+				Field::make( 'text', 's', __( 'Google Maps API Key', 'fgw' ) ),
+
 	) );
