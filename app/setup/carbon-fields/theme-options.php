@@ -27,10 +27,10 @@ Container::make( 'theme_options', __( 'Theme Options', 'fgw' ) )
 						'youtube' => 'Youtube',
 						'linkedin' => 'LinkedIn',
 					)),
-				Field::make('urlpicker', 'mtw_social_link', __('URL', 'mtw'))
+				Field::make('urlpicker', 'fgw_social_link', __('URL', 'mtw'))
 					->set_help_text('Enter your Link url'),
 			))
-			->set_header_template('Social Network: <%- mtw_social_type %>')
+			->set_header_template('Social Network: <%- fgw_social_type %>')
 
 	) );
 
