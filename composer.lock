@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88fd0eb7c59c6ac6ed23939d4a3705e2",
+    "content-hash": "c37d1024091816ce537829e4ea1103c8",
     "packages": [
         {
             "name": "composer/installers",
@@ -505,6 +505,48 @@
             "time": "2019-06-03T19:47:50+00:00"
         },
         {
+            "name": "iamntz/carbon-fields-urlpicker",
+            "version": "v3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iamntz/carbon-fields-urlpicker.git",
+                "reference": "c8114eddd182ccd16e8cf031c7d317ee481c7d00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iamntz/carbon-fields-urlpicker/zipball/c8114eddd182ccd16e8cf031c7d317ee481c7d00",
+                "reference": "c8114eddd182ccd16e8cf031c7d317ee481c7d00",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "field.php"
+                ],
+                "psr-4": {
+                    "Carbon_Field_UrlPicker\\": "core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ionuț Staicu",
+                    "email": "github@iamntz.com"
+                }
+            ],
+            "description": "Carbon Fields extension, that adds a URL picker field type.",
+            "homepage": "https://github.com/iamntz/carbon-fields-urlpicker",
+            "keywords": [
+                "carbon-field",
+                "carbon-fields-urlpicker",
+                "wordpress"
+            ],
+            "time": "2019-10-11T10:00:47+00:00"
+        },
+        {
             "name": "pimple/pimple",
             "version": "v3.2.3",
             "source": {
@@ -974,7 +1016,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.33",
+            "version": "v3.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -1046,7 +1088,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.33",
+            "version": "v3.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -1161,7 +1203,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.33",
+            "version": "v3.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -1210,16 +1252,16 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress-Coding-Standards.git",
-                "reference": "bd9c33152115e6741e3510ff7189605b35167908"
+                "reference": "f90e8692ce97b693633db7ab20bfa78d930f536a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/bd9c33152115e6741e3510ff7189605b35167908",
-                "reference": "bd9c33152115e6741e3510ff7189605b35167908",
+                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/f90e8692ce97b693633db7ab20bfa78d930f536a",
+                "reference": "f90e8692ce97b693633db7ab20bfa78d930f536a",
                 "shasum": ""
             },
             "require": {
@@ -1242,7 +1284,7 @@
             "authors": [
                 {
                     "name": "Contributors",
-                    "homepage": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/graphs/contributors"
+                    "homepage": "https://github.com/WordPress/WordPress-Coding-Standards/graphs/contributors"
                 }
             ],
             "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions",
@@ -1251,12 +1293,14 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2019-05-21T02:50:00+00:00"
+            "time": "2019-11-11T12:34:03+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "iamntz/carbon-fields-urlpicker": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
