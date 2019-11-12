@@ -14,7 +14,7 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 
-Container::make( 'post_meta', __( 'Property Data', 'fgw' ) )
+Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
 	->add_tab( __( 'Global Informations ' ), array(
 		Field::make( 'select', 'type', __( 'Type' ) )
@@ -38,14 +38,34 @@ Container::make( 'post_meta', __( 'Property Data', 'fgw' ) )
 				return $options;
 			})
 			->set_visible_in_rest_api(true),
+
+			Field::make( 'set', 'payment_methods', __( 'Payment Methods' ) )
+    	->set_options( array(
+        'cash' => __( 'Cash' ),
+        'installment' => __( 'Installment' ),
+			) )
+			->set_visible_in_rest_api(true),
+
+			Field::make( 'text', 'installment_info', __( 'Installment Info') ),
 			
+			Field::make( 'date', 'building_date', __( 'Building Date' ) )
+			->set_visible_in_rest_api(true),
+
+			Field::make( 'date', 'delivery_date', __( 'Delivery Date' ) )
+			->set_visible_in_rest_api(true),
+
+			Field::make( 'checkbox', 'is_project_ready', __( 'Is Project Ready ?' ) )
+			->set_visible_in_rest_api(true),
+
+			Field::make( 'checkbox', 'is_help_in_citizenship', __( 'Is Help In Citizenship ?' ) )
+			->set_visible_in_rest_api(true),
 
 	))
 	->add_tab( __( 'Features' ), array(
 		Field::make('complex', 'features', __('Features '))
 				->set_collapsed(true)
 				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make( 'text', 'title', __( 'Title') ),
 				))
 				->set_header_template('Feature: <%- title %>')
 				->set_visible_in_rest_api(true),

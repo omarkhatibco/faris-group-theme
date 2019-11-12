@@ -12,10 +12,10 @@
 use Carbon_Fields\Container\Container;
 use Carbon_Fields\Field\Field;
 
-Container::make( 'theme_options', __( 'Theme Options', 'fgw' ) )
+Container::make( 'theme_options', __( 'Theme Options') )
 	->set_page_parent('options-general.php')
 	->add_fields( array(
-		Field::make( 'text', 'crb_google_maps_api_key', __( 'Google Maps API Key', 'fgw' ) ),
+		Field::make( 'text', 'crb_google_maps_api_key', __( 'Google Maps API Key') ),
 		Field::make('complex', 'fgw_socials', __('Social Media'))
 			->set_collapsed(true)
 			->add_fields(array(
@@ -35,14 +35,14 @@ Container::make( 'theme_options', __( 'Theme Options', 'fgw' ) )
 	) );
 
 	
-Container::make( 'theme_options', __( 'Property Options', 'fgw' ) )
+Container::make( 'theme_options', __( 'Property Options') )
 	->set_page_parent('options-general.php')
 	->add_tab( __( 'Types' ), array(
 				//* Types
         Field::make('complex', 'fgw_types', __('Types'))
 				->set_collapsed(true)
 				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make( 'text', 'title', __( 'Title') ),
 					Field::make('uniqid', 'slug'),
 				))
 				->set_header_template('Type: <%- title %>'),
@@ -50,7 +50,7 @@ Container::make( 'theme_options', __( 'Property Options', 'fgw' ) )
         Field::make('complex', 'fgw_contract_types', __('Contract Types'))
 				->set_collapsed(true)
 				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make( 'text', 'title', __( 'Title') ),
 					Field::make('uniqid', 'slug'),
 				))
 				->set_header_template('Contract Type: <%- title %>'),
@@ -60,12 +60,12 @@ Container::make( 'theme_options', __( 'Property Options', 'fgw' ) )
 				Field::make('complex', 'fgw_locations', __('Locations'))
 				->set_collapsed(true)
 				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make( 'text', 'title', __( 'Title') ),
 					Field::make('uniqid', 'slug'),
 					Field::make('complex', 'fgw_sublocations', __('Sublocations'))
 						->set_collapsed(true)
 						->add_fields(array(
-							Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+							Field::make( 'text', 'title', __( 'Title') ),
 							Field::make('uniqid', 'slug'),
 						))
 						->set_header_template('Sublocations: <%- title %>'),
@@ -77,7 +77,7 @@ Container::make( 'theme_options', __( 'Property Options', 'fgw' ) )
 				Field::make('complex', 'fgw_amenities', __('Amenities'))
 				->set_collapsed(true)
 				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+					Field::make( 'text', 'title', __( 'Title') ),
 					Field::make('uniqid', 'slug'),
 				))
 				->set_header_template('Amenities: <%- title %>'),

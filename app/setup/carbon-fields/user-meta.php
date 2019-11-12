@@ -14,7 +14,7 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 /*
-Container::make( 'user_meta', __( 'Custom Data', 'fgw' ) )
+Container::make( 'user_meta', __( 'Custom Data') )
 	->add_fields( array(
 		Field::make( 'image', 'crb_img' ),
 	));
