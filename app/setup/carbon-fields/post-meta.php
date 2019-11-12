@@ -159,13 +159,15 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$themeOptionsLocations = carbon_get_theme_option( 'fgw_locations' );
 				$selectedLocationSlug= carbon_get_the_post_meta( 'location' );
 				$selectedLocationIndex = array_search($selectedLocationSlug, array_column($themeOptionsLocations, 'slug'));
-				$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
-				if (is_array($selectedLocationSublocations)) {
-					foreach($selectedLocationSublocations as $item) {
-						$options[$item['slug']] = $item['title'];
+				if ($selectedLocationIndex) {
+					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
+					if (is_array($selectedLocationSublocations)) {
+						foreach($selectedLocationSublocations as $item) {
+							$options[$item['slug']] = $item['title'];
+						}
 					}
 				}
-				
+
 				return $options;
 			})
 			->set_visible_in_rest_api(true),
