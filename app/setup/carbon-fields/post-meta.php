@@ -14,9 +14,9 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 
-Container::make( 'post_meta', __( 'Custom Data', 'fgw' ) )
+Container::make( 'post_meta', __( 'Property Data', 'fgw' ) )
 	->where( 'post_type', '=', 'property' )
-	->add_tab( __( 'Type & Distances' ), array(
+	->add_tab( __( 'Global Informations ' ), array(
 		Field::make( 'select', 'type', __( 'Type' ) )
 			->set_options(function () {
 				$options = [];
@@ -38,10 +38,19 @@ Container::make( 'post_meta', __( 'Custom Data', 'fgw' ) )
 				return $options;
 			})
 			->set_visible_in_rest_api(true),
-    
-		))
-		
+			
 
+	))
+	->add_tab( __( 'Features' ), array(
+		Field::make('complex', 'features', __('Features '))
+				->set_collapsed(true)
+				->add_fields(array(
+					Field::make( 'text', 'title', __( 'Title', 'fgw' ) ),
+				))
+				->set_header_template('Feature: <%- title %>')
+				->set_visible_in_rest_api(true),
+    
+	))
 	->add_tab( __( 'Amunities' ), array(
 		Field::make( 'set', 'amenities', __( 'Amunities' ) )
 			->set_options(function () {
@@ -55,20 +64,23 @@ Container::make( 'post_meta', __( 'Custom Data', 'fgw' ) )
 			->set_visible_in_rest_api(true),
 
     
-		))
-		
-
-	->add_tab( __( 'Types' ), array(
-
-    
-		))
-		
+	))
 
 	->add_tab( __( 'Galleries & Attachments' ), array(
-		Field::make( 'image', 'crb_img' ),
-		Field::make( 'file', 'crb_pdf' ),
+		Field::make( 'media_gallery', 'media_gallery', __( 'Media Gallery' ) )
+		->set_type( array('image') )
+		->set_duplicates_allowed(false)
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'media_gallery', 'attachments', __( 'Attachment' ) )
+		->set_type( array('doc','pdf') )
+		->set_duplicates_allowed(false)
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'oembed', 'oembed', __( 'Video' ) )
+		->set_visible_in_rest_api(true),
     
-    ))
+  ))
 	->add_tab( __( 'Location' ), array(
 		Field::make( 'select', 'location', __( 'Location' ) )
 			->set_options(function () {
@@ -99,6 +111,6 @@ Container::make( 'post_meta', __( 'Custom Data', 'fgw' ) )
     	Field::make( 'map', 'map' )
 			->set_position( 41.015137, 28.979530, 10 )
 			->set_visible_in_rest_api(true),
-    ));
+  ));
 
 // phpcs:enable
