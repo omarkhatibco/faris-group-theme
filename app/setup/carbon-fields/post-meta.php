@@ -22,7 +22,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsTypes = carbon_get_theme_option( 'fgw_types' );
 				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item['title'];
+						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
 				}
 				return $options;
 			})
@@ -33,7 +33,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsTypes = carbon_get_theme_option( 'fgw_contract_types' );
 				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item['title'];
+						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
 				}
 				return $options;
 			})
@@ -47,6 +47,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'installment_info', __( 'Installment Info') ),
+			Field::make( 'text', 'installment_info_ar', __( 'Installment Info AR') ),
+			Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') ),
 			
 			Field::make( 'date', 'building_date', __( 'Building Date' ) )
 			->set_visible_in_rest_api(true),
@@ -96,6 +98,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 					->set_visible_in_rest_api(true),
 					
 					Field::make( 'text', 'note', __( 'Note') ),
+					Field::make( 'text', 'note_ar', __( 'Note AR') ),
+					Field::make( 'text', 'note_tr', __( 'Note TR') ),
 				))
 				->set_header_template('<%- rooms_count %>+<%- salons_count %> - <%- min_size %>㎡   - price: <%- price %>$')
 				->set_visible_in_rest_api(true),
@@ -107,6 +111,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
+					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_tr', __( 'Title TR') ),
 				))
 				->set_header_template('Feature: <%- title %>')
 				->set_visible_in_rest_api(true),
@@ -118,7 +124,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsTypes = carbon_get_theme_option( 'fgw_amenities' );
 				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item['title'];
+						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
 				}
 				return $options;
 			})
@@ -148,7 +154,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsLocations = carbon_get_theme_option( 'fgw_locations' );
 				foreach($themeOptionsLocations as $item) {
-						$options[$item['slug']] = $item['title'];
+						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
 				}
 				return $options;
 			})
@@ -163,7 +169,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
 					if (is_array($selectedLocationSublocations)) {
 						foreach($selectedLocationSublocations as $item) {
-							$options[$item['slug']] = $item['title'];
+							$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
 						}
 					}
 				}

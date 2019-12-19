@@ -43,7 +43,9 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make('uniqid', 'slug'),
+					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_tr', __( 'Title TR') ),
+					Field::make('text', 'slug'),
 				))
 				->set_header_template('Type: <%- title %>'),
 
@@ -51,7 +53,9 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make('uniqid', 'slug'),
+					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_tr', __( 'Title TR') ),
+					Field::make('text', 'slug'),
 				))
 				->set_header_template('Contract Type: <%- title %>'),
     ) )
@@ -61,12 +65,16 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make('uniqid', 'slug'),
+					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_tr', __( 'Title TR') ),
+					Field::make('text', 'slug'),
 					Field::make('complex', 'fgw_sublocations', __('Sublocations'))
 						->set_collapsed(true)
 						->add_fields(array(
 							Field::make( 'text', 'title', __( 'Title') ),
-							Field::make('uniqid', 'slug'),
+							Field::make( 'text', 'title_ar', __( 'Title AR') ),
+							Field::make( 'text', 'title_tr', __( 'Title TR') ),
+							Field::make('text', 'slug'),
 						))
 						->set_header_template('Sublocations: <%- title %>'),
 				))
@@ -78,7 +86,9 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make('uniqid', 'slug'),
+					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_tr', __( 'Title TR') ),
+					Field::make('text', 'slug'),
 				))
 				->set_header_template('Amenities: <%- title %>'),
     ));
