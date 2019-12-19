@@ -22,7 +22,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsTypes = carbon_get_theme_option( 'fgw_types' );
 				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
+						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 				}
 				return $options;
 			})
@@ -33,7 +33,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsTypes = carbon_get_theme_option( 'fgw_contract_types' );
 				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
+						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 				}
 				return $options;
 			})
@@ -124,7 +124,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsTypes = carbon_get_theme_option( 'fgw_amenities' );
 				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
+						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 				}
 				return $options;
 			})
@@ -154,7 +154,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$options = [];
 				$themeOptionsLocations = carbon_get_theme_option( 'fgw_locations' );
 				foreach($themeOptionsLocations as $item) {
-						$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
+						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 				}
 				return $options;
 			})
@@ -169,7 +169,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
 					if (is_array($selectedLocationSublocations)) {
 						foreach($selectedLocationSublocations as $item) {
-							$options[$item['slug']] = $item[wpm_get_language() === 'en' ? 'title' : 'title_' . wpm_get_language()];
+							$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 						}
 					}
 				}
