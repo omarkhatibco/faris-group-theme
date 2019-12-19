@@ -46,9 +46,12 @@ Container::make( 'post_meta', __( 'Property Data') )
 			) )
 			->set_visible_in_rest_api(true),
 
-			Field::make( 'text', 'installment_info', __( 'Installment Info') ),
-			Field::make( 'text', 'installment_info_ar', __( 'Installment Info AR') ),
-			Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') ),
+			Field::make( 'text', 'installment_info', __( 'Installment Info') )
+			->set_visible_in_rest_api(true),
+			Field::make( 'text', 'installment_info_ar', __( 'Installment Info AR') )
+			->set_visible_in_rest_api(true),
+			Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') )
+			->set_visible_in_rest_api(true),
 			
 			Field::make( 'date', 'building_date', __( 'Building Date' ) )
 			->set_visible_in_rest_api(true),
@@ -69,37 +72,31 @@ Container::make( 'post_meta', __( 'Property Data') )
 				->add_fields(array(
 					Field::make( 'text', 'rooms_count', __( 'Rooms Count' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' )
-					->set_visible_in_rest_api(true),
+					->set_attribute( 'min', '0' ),
 
 					Field::make( 'text', 'salons_count', __( 'Salons Count' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' )
-					->set_visible_in_rest_api(true),
+					->set_attribute( 'min', '0' ),
 
 					Field::make( 'text', 'baths_count', __( 'Baths Count' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' )
-					->set_visible_in_rest_api(true),
+					->set_attribute( 'min', '0' ),
 
 					Field::make( 'text', 'min_size', __( 'Minimum Size' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' )
-					->set_visible_in_rest_api(true),
+					->set_attribute( 'min', '0' ),
 
 					Field::make( 'text', 'max_size', __( 'Maximum Size' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' )
-					->set_visible_in_rest_api(true),
+					->set_attribute( 'min', '0' ),
 
 					Field::make( 'text', 'price', __( 'Price' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' )
-					->set_visible_in_rest_api(true),
-					
+					->set_attribute( 'min', '0' ),
+
 					Field::make( 'text', 'note', __( 'Note') ),
 					Field::make( 'text', 'note_ar', __( 'Note AR') ),
-					Field::make( 'text', 'note_tr', __( 'Note TR') ),
+					Field::make( 'text', 'note_tr', __( 'Note TR') )
 				))
 				->set_header_template('<%- rooms_count %>+<%- salons_count %> - <%- min_size %>㎡   - price: <%- price %>$')
 				->set_visible_in_rest_api(true),
