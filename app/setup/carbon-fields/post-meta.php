@@ -162,7 +162,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$themeOptionsLocations = carbon_get_theme_option( 'fgw_locations' );
 				$selectedLocationSlug= carbon_get_the_post_meta( 'location' );
 				$selectedLocationIndex = array_search($selectedLocationSlug, array_column($themeOptionsLocations, 'slug'));
-				if ($selectedLocationIndex) {
+				if ($selectedLocationIndex !== false) {
 					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
 					if (is_array($selectedLocationSublocations)) {
 						foreach($selectedLocationSublocations as $item) {
