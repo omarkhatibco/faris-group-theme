@@ -66,8 +66,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_visible_in_rest_api(true),
 
 	))
-	->add_tab( __( 'Apparment Informations ' ), array(
-		Field::make('complex', 'appartments', __('Apparment Informations '))
+	->add_tab( __( 'Appartment Informations ' ), array(
+		Field::make('complex', 'appartments', __('Appartment Informations '))
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'rooms_count', __( 'Rooms Count' ) )
