@@ -16,14 +16,14 @@ use Carbon_Fields\Field\Field;
 
 
 
-Container::make( 'post_meta', __( 'Property Data') )
+Container::make( 'post_meta' )
 	->where( 'post_type', '=', 'property' )
 	->set_context( 'carbon_fields_after_title' )
 	->add_fields(array(
 
-			Field::make( 'text', 'title_ar', __( 'title AR') )
+			Field::make( 'text', 'title_ar', __( 'Title AR') )
 			->set_visible_in_rest_api(true),
-			Field::make( 'text', 'title_tr', __( 'Titke TR') )
+			Field::make( 'text', 'title_tr', __( 'Title TR') )
 			->set_visible_in_rest_api(true),
 
 	));
