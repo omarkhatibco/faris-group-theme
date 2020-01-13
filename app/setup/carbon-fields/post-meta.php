@@ -21,13 +21,13 @@ Container::make( 'post_meta', __( 'Translation') )
 			Field::make( 'text', 'title_ar', __( 'Title') )
 			->set_visible_in_rest_api(true),
 
-			Field::make( 'rich_text', 'description_ar', __( 'Description') )
+			Field::make( 'rich_text', 'content_ar', __( 'Description') )
 			->set_visible_in_rest_api(true),
 	))
 	->add_tab( __( 'Turkish Translation' ), array(
 			Field::make( 'text', 'title_tr', __( 'Title') )
 			->set_visible_in_rest_api(true),
-			Field::make( 'rich_text', 'description_tr', __( 'Description') )
+			Field::make( 'rich_text', 'content_tr', __( 'Description') )
 			->set_visible_in_rest_api(true),
 	));
 
