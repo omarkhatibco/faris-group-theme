@@ -48,7 +48,7 @@ register_post_type( 'property', array(
 	'_edit_link'          => 'post.php?post=%d',
 	'query_var'           => true,
 	'menu_icon'           => 'dashicons-admin-post',
-	'supports' 						=> array('title', 'thumbnail', 'excerpt', 'editor'),
+	'supports' 						=> array('title', 'thumbnail', 'editor'),
 	'rewrite'             => array(
 		'slug'       => 'property',
 		'with_front' => false,
