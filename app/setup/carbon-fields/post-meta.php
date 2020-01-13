@@ -111,10 +111,6 @@ Container::make( 'post_meta', __( 'Property Data') )
 					->set_attribute( 'type', 'number' )
 					->set_attribute( 'min', '0' ),
 
-					Field::make( 'text', 'max_size', __( 'Maximum Size' ) )
-					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' ),
-
 					Field::make( 'text', 'price', __( 'Price' ) )
 					->set_attribute( 'type', 'number' )
 					->set_attribute( 'min', '0' ),
