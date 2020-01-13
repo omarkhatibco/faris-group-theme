@@ -17,14 +17,22 @@ use Carbon_Fields\Field\Field;
 	
 Container::make( 'post_meta', __( 'Translation') )
 	->where( 'post_type', '=', 'property' )
-	->add_tab( __( 'Arabic Translation' ), array(
-			Field::make( 'text', 'title_ar', __( 'Title') )
+	->add_tab( __( 'English Translation' ), array(
+
+			Field::make( 'checkbox', 'active_en', __( 'Show project in this Language' ) )
 			->set_visible_in_rest_api(true),
 
-			Field::make( 'rich_text', 'content_ar', __( 'Description') )
+			Field::make( 'text', 'title_en', __( 'Title') )
+			->set_visible_in_rest_api(true),
+
+			Field::make( 'rich_text', 'content_en', __( 'Description') )
 			->set_visible_in_rest_api(true),
 	))
 	->add_tab( __( 'Turkish Translation' ), array(
+
+			Field::make( 'checkbox', 'active_en', __( 'Show project in this Language' ) )
+			->set_visible_in_rest_api(true),
+
 			Field::make( 'text', 'title_tr', __( 'Title') )
 			->set_visible_in_rest_api(true),
 			Field::make( 'rich_text', 'content_tr', __( 'Description') )
@@ -65,7 +73,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 			Field::make( 'text', 'installment_info', __( 'Installment Info') )
 			->set_visible_in_rest_api(true),
-			Field::make( 'text', 'installment_info_ar', __( 'Installment Info AR') )
+			Field::make( 'text', 'installment_info_en', __( 'Installment Info EN') )
 			->set_visible_in_rest_api(true),
 			Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') )
 			->set_visible_in_rest_api(true),
@@ -112,7 +120,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 					->set_attribute( 'min', '0' ),
 
 					Field::make( 'text', 'note', __( 'Note') ),
-					Field::make( 'text', 'note_ar', __( 'Note AR') ),
+					Field::make( 'text', 'note_en', __( 'Note EN') ),
 					Field::make( 'text', 'note_tr', __( 'Note TR') )
 				))
 				->set_header_template('<%- rooms_count %>+<%- salons_count %> - <%- min_size %>㎡   - price: <%- price %>$')
@@ -125,7 +133,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_en', __( 'Title EN') ),
 					Field::make( 'text', 'title_tr', __( 'Title TR') ),
 				))
 				->set_header_template('Feature: <%- title %>')
@@ -181,7 +189,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$selectedLocationIndex = array_search($selectedLocationSlug, array_column($themeOptionsLocations, 'slug'));
 				if ($selectedLocationIndex !== false) {
 					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
-					if (is_array($selectedLocationSublocations)) {
+					if (is_enray($selectedLocationSublocations)) {
 						foreach($selectedLocationSublocations as $item) {
 							$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 						}

@@ -43,7 +43,7 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_en', __( 'Title EN') ),
 					Field::make( 'text', 'title_tr', __( 'Title TR') ),
 					Field::make('text', 'slug'),
 				))
@@ -53,7 +53,7 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_en', __( 'Title EN') ),
 					Field::make( 'text', 'title_tr', __( 'Title TR') ),
 					Field::make('text', 'slug'),
 				))
@@ -65,14 +65,14 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_en', __( 'Title EN') ),
 					Field::make( 'text', 'title_tr', __( 'Title TR') ),
 					Field::make('text', 'slug'),
 					Field::make('complex', 'fgw_sublocations', __('Sublocations'))
 						->set_collapsed(true)
 						->add_fields(array(
 							Field::make( 'text', 'title', __( 'Title') ),
-							Field::make( 'text', 'title_ar', __( 'Title AR') ),
+							Field::make( 'text', 'title_en', __( 'Title EN') ),
 							Field::make( 'text', 'title_tr', __( 'Title TR') ),
 							Field::make('text', 'slug'),
 						))
@@ -86,7 +86,7 @@ Container::make( 'theme_options', __( 'Property Options') )
 				->set_collapsed(true)
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_ar', __( 'Title AR') ),
+					Field::make( 'text', 'title_en', __( 'Title EN') ),
 					Field::make( 'text', 'title_tr', __( 'Title TR') ),
 					Field::make('text', 'slug'),
 				))
