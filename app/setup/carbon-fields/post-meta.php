@@ -14,32 +14,22 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 
-
-
-Container::make( 'post_meta', __( 'Title Translation') )
-	->where( 'post_type', '=', 'property' )
-	->set_context( 'carbon_fields_after_title' )
-	->add_fields(array(
-
-			Field::make( 'text', 'title_ar', __( 'Title AR') )
-			->set_visible_in_rest_api(true),
-			Field::make( 'text', 'title_tr', __( 'Title TR') )
-			->set_visible_in_rest_api(true),
-
-	));
-
 	
-Container::make( 'post_meta', __( 'Description Translation') )
+Container::make( 'post_meta', __( 'Translation') )
 	->where( 'post_type', '=', 'property' )
-	->add_fields(array(
-
-			Field::make( 'rich_text', 'description_ar', __( 'Title AR') )
-			->set_visible_in_rest_api(true),
-			Field::make( 'rich_text', 'description_tr', __( 'Title TR') )
+	->add_tab( __( 'Arabic Translation' ), array(
+			Field::make( 'text', 'title_ar', __( 'Title') )
 			->set_visible_in_rest_api(true),
 
+			Field::make( 'rich_text', 'description_ar', __( 'Description') )
+			->set_visible_in_rest_api(true),
+	))
+	->add_tab( __( 'Turkish Translation' ), array(
+			Field::make( 'text', 'title_tr', __( 'Title') )
+			->set_visible_in_rest_api(true),
+			Field::make( 'rich_text', 'description_tr', __( 'Description') )
+			->set_visible_in_rest_api(true),
 	));
-	
 
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
