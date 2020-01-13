@@ -14,6 +14,21 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 
+
+
+Container::make( 'post_meta', __( 'Property Data') )
+	->where( 'post_type', '=', 'property' )
+	->set_context( 'carbon_fields_after_title' )
+	->add_fields(array(
+
+			Field::make( 'text', 'title_ar', __( 'title AR') )
+			->set_visible_in_rest_api(true),
+			Field::make( 'text', 'title_tr', __( 'Titke TR') )
+			->set_visible_in_rest_api(true),
+
+	));
+	
+
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
 	->add_tab( __( 'Global Informations ' ), array(
