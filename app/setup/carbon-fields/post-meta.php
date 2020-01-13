@@ -30,7 +30,7 @@ Container::make( 'post_meta', __( 'Translation') )
 	))
 	->add_tab( __( 'Turkish Translation' ), array(
 
-			Field::make( 'checkbox', 'active_en', __( 'Show project in this Language' ) )
+			Field::make( 'checkbox', 'active_tr', __( 'Show project in this Language' ) )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'title_tr', __( 'Title') )
