@@ -189,7 +189,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				$selectedLocationIndex = array_search($selectedLocationSlug, array_column($themeOptionsLocations, 'slug'));
 				if ($selectedLocationIndex !== false) {
 					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
-					if (is_enray($selectedLocationSublocations)) {
+					if (is_array($selectedLocationSublocations)) {
 						foreach($selectedLocationSublocations as $item) {
 							$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
 						}
