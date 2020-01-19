@@ -99,7 +99,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 					->set_visible_in_rest_api(true),
 					Field::make( 'text', 'rooms_count', __( 'Rooms Count' ) )
 					->set_attribute( 'type', 'number' )
-					->set_attribute( 'min', '0' ),
+					->set_attribute( 'min', '0' )
+					->set_attribute( 'step', '0.5' ),
 
 					Field::make( 'text', 'salons_count', __( 'Salons Count' ) )
 					->set_attribute( 'type', 'number' )
