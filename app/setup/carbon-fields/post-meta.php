@@ -198,6 +198,9 @@ Container::make( 'post_meta', __( 'Property Data') )
     	Field::make( 'map', 'map' )
 			->set_position( 41.015137, 28.979530, 10 )
 			->set_visible_in_rest_api(true),
+  ))
+	->add_tab( __( 'Notes' ), array(
+		Field::make( 'textarea', 'Notes', __( 'Notes') ),
   ));
 
 // phpcs:enable
