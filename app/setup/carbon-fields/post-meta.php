@@ -126,7 +126,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 
 				))
-				->set_header_template('<%- rooms_count %>+<%- salons_count %> - <%- min_size %>㎡   - price: <%- price %>$')
+				->set_header_template('<%- rooms_count %>+<%- salons_count %> - <%- min_size %>㎡   - price: <%- price %>₺')
 				->set_visible_in_rest_api(true),
 
 
