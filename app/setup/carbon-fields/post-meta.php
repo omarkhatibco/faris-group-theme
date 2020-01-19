@@ -27,17 +27,17 @@ Container::make( 'post_meta', __( 'Translation') )
 
 			Field::make( 'rich_text', 'content_en', __( 'Description') )
 			->set_visible_in_rest_api(true),
-	))
-	->add_tab( __( 'Turkish Translation' ), array(
-
-			Field::make( 'checkbox', 'active_tr', __( 'Show project in this Language' ) )
-			->set_visible_in_rest_api(true),
-
-			Field::make( 'text', 'title_tr', __( 'Title') )
-			->set_visible_in_rest_api(true),
-			Field::make( 'rich_text', 'content_tr', __( 'Description') )
-			->set_visible_in_rest_api(true),
 	));
+	// ->add_tab( __( 'Turkish Translation' ), array(
+
+	// 		Field::make( 'checkbox', 'active_tr', __( 'Show project in this Language' ) )
+	// 		->set_visible_in_rest_api(true),
+
+	// 		Field::make( 'text', 'title_tr', __( 'Title') )
+	// 		->set_visible_in_rest_api(true),
+	// 		Field::make( 'rich_text', 'content_tr', __( 'Description') )
+	// 		->set_visible_in_rest_api(true),
+	// ));
 
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
@@ -75,8 +75,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_visible_in_rest_api(true),
 			Field::make( 'text', 'installment_info_en', __( 'Installment Info EN') )
 			->set_visible_in_rest_api(true),
-			Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') )
-			->set_visible_in_rest_api(true),
+			// Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') )
+			// ->set_visible_in_rest_api(true),
 			
 			// Field::make( 'date', 'building_date', __( 'Building Date' ) )
 			// ->set_visible_in_rest_api(true),
@@ -95,6 +95,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 		Field::make('complex', 'appartments', __('Appartment Informations '))
 				->set_collapsed(true)
 				->add_fields(array(
+					Field::make( 'checkbox', 'is_duplex', __( 'Duplex ?' ) )
+					->set_visible_in_rest_api(true),
 					Field::make( 'text', 'rooms_count', __( 'Rooms Count' ) )
 					->set_attribute( 'type', 'number' )
 					->set_attribute( 'min', '0' ),
@@ -117,9 +119,10 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 					Field::make( 'text', 'note', __( 'Note') ),
 					Field::make( 'text', 'note_en', __( 'Note EN') ),
-					Field::make( 'text', 'note_tr', __( 'Note TR') ),
+					// Field::make( 'text', 'note_tr', __( 'Note TR') ),
 
 					Field::make( 'image', 'image', __( 'Image' ) )
+
 
 				))
 				->set_header_template('<%- rooms_count %>+<%- salons_count %> - <%- min_size %>㎡   - price: <%- price %>$')
@@ -133,7 +136,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 				->add_fields(array(
 					Field::make( 'text', 'title', __( 'Title') ),
 					Field::make( 'text', 'title_en', __( 'Title EN') ),
-					Field::make( 'text', 'title_tr', __( 'Title TR') ),
+					// Field::make( 'text', 'title_tr', __( 'Title TR') ),
 				))
 				->set_header_template('Feature: <%- title %>')
 				->set_visible_in_rest_api(true),
