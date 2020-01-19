@@ -200,7 +200,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_visible_in_rest_api(true),
   ))
 	->add_tab( __( 'Notes' ), array(
-		Field::make( 'textarea', 'Notes', __( 'Notes') ),
+		Field::make( 'textarea', 'notes', __( 'Notes') ),
   ));
 
 // phpcs:enable
