@@ -97,6 +97,10 @@ Container::make( 'post_meta', __( 'Property Data') )
 				->add_fields(array(
 					Field::make( 'checkbox', 'is_duplex', __( 'Duplex ?' ) )
 					->set_visible_in_rest_api(true),
+					Field::make( 'checkbox', 'is_villa', __( 'Villa ?' ) )
+					->set_visible_in_rest_api(true),
+					Field::make( 'checkbox', 'is_penthouse', __( 'Penthouse ?' ) )
+					->set_visible_in_rest_api(true),
 					Field::make( 'text', 'rooms_count', __( 'Rooms Count' ) )
 					->set_attribute( 'type', 'number' )
 					->set_attribute( 'min', '0' )
