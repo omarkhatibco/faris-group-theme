@@ -73,8 +73,8 @@ add_action('update_currency_exchange_rate', function () {
 	}
 });
 
-if (! wp_next_scheduled ( 'delete_must_be_deleted_users' )) {
-	wp_schedule_event(time(), 'hourly', 'delete_must_be_deleted_users');
+if (! wp_next_scheduled ( 'update_currency_exchange_rate' )) {
+	wp_schedule_event(time(), 'hourly', 'update_currency_exchange_rate');
 }
 
 /**
