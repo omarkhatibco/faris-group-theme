@@ -30,7 +30,7 @@ Route::url( '/api/' )->group( function () {
 
 		// });
 
-		Route::get()->url( '/test' )->handle( 'TestController@index' );
+		Route::get()->url( '/gallery/{postId}' )->handle( 'GalleryController@index' );
 
 } );
 
