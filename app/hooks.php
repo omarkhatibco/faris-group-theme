@@ -58,9 +58,7 @@ add_action('update_currency_exchange_rate', function () {
      
   $response  = wp_remote_get( 'https://openexchangerates.org/api/latest.json?app_id=' . $apikey);
   $apiData =json_decode($response['body'], true);
-	wp_mail("hokob69543@eroyal.net", "Subject", $response['body']);
 	if ($apiData && !isset($apiData['error'])) {
-		wp_mail("hokob69543@eroyal.net", "Subject", "Message");
 		$currency = ['eur','sar','aed','kwd','omr','qar','bhd','jod','dzd','yer','gbp','chf','chf','cad','aud','cny','rub'];
 
     $try = $apiData['rates']['TRY'];
