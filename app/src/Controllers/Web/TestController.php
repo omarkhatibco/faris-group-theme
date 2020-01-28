@@ -27,8 +27,11 @@ class TestController
     $data;
 
     $data['usd'] = 1 / $try;
+    carbon_set_theme_option( 'currency_lastupdate', $apiData['timestamp'] );
+    carbon_set_theme_option( 'currency_usd', 1 / $try );
 
     foreach ($currency as $curr) {
+      carbon_set_theme_option( 'currency_' . $curr, $apiData['rates'][strtoupper($curr)]  / $try );
       $data[$curr] = $apiData['rates'][strtoupper($curr)]  / $try;
     }
 
