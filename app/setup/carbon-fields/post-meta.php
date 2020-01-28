@@ -95,12 +95,9 @@ Container::make( 'post_meta', __( 'Property Data') )
 		Field::make('complex', 'appartments', __('Appartment Informations '))
 				->set_collapsed(true)
 				->add_fields(array(
-					Field::make( 'checkbox', 'is_duplex', __( 'Duplex ?' ) )
-					->set_visible_in_rest_api(true),
-					Field::make( 'checkbox', 'is_villa', __( 'Villa ?' ) )
-					->set_visible_in_rest_api(true),
-					Field::make( 'checkbox', 'is_penthouse', __( 'Penthouse ?' ) )
-					->set_visible_in_rest_api(true),
+					Field::make( 'checkbox', 'is_duplex', __( 'Duplex ?' ) ),
+					Field::make( 'checkbox', 'is_villa', __( 'Villa ?' ) ),
+					Field::make( 'checkbox', 'is_penthouse', __( 'Penthouse ?' ) ),
 					Field::make( 'text', 'rooms_count', __( 'Rooms Count' ) )
 					->set_attribute( 'type', 'number' )
 					->set_attribute( 'min', '0' )
@@ -126,7 +123,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 					Field::make( 'text', 'note_en', __( 'Note EN') ),
 					// Field::make( 'text', 'note_tr', __( 'Note TR') ),
 
-					Field::make( 'image', 'image', __( 'Image' ) )->set_value_type( 'url' )
+					Field::make( 'image', 'image', __( 'Image' ))->set_value_type( 'url' )
 
 
 				))
@@ -168,7 +165,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 		->set_duplicates_allowed(false)
 		->set_visible_in_rest_api(true),
 
-		Field::make( 'media_gallery', 'attachments', __( 'Attachment' ) )
+		Field::make( 'file', 'attachments', __( 'Attachment' ) )
 		->set_type( array('doc','pdf') )
 		->set_duplicates_allowed(false)
 		->set_visible_in_rest_api(true),
