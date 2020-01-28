@@ -97,6 +97,7 @@ Container::make( 'theme_options', __( 'Property Options') )
 	Container::make( 'theme_options', __( 'Currency Converter') )
 	->set_page_parent('options-general.php')
 	->add_fields( array(
+		Field::make( 'text', 'currency_lastupdate', __( 'Last Update') ),
 		Field::make( 'text', 'currency_usd', __( 'USD') ),
 		Field::make( 'text', 'currency_eur', __( 'EUR') ),
 		Field::make( 'text', 'currency_sar', __( 'SAR') ),
