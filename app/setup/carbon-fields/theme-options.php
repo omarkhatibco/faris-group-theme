@@ -91,8 +91,30 @@ Container::make( 'theme_options', __( 'Property Options') )
 					Field::make('text', 'slug'),
 				))
 				->set_header_template('Amenities: <%- title %>'),
-    ));
-	
+		));
+		
+
+	Container::make( 'theme_options', __( 'Currency Converter') )
+	->set_page_parent('options-general.php')
+	->add_fields( array(
+		Field::make( 'text', 'currency_usd', __( 'USD') ),
+		Field::make( 'text', 'currency_eur', __( 'EUR') ),
+		Field::make( 'text', 'currency_sar', __( 'SAR') ),
+		Field::make( 'text', 'currency_aed', __( 'AED') ),
+		Field::make( 'text', 'currency_kwd', __( 'KWD') ),
+		Field::make( 'text', 'currency_omr', __( 'OMR') ),
+		Field::make( 'text', 'currency_qar', __( 'QAR') ),
+		Field::make( 'text', 'currency_bhd', __( 'BHD') ),
+		Field::make( 'text', 'currency_jor', __( 'JOR') ),
+		Field::make( 'text', 'currency_dzd', __( 'DZD') ),
+		Field::make( 'text', 'currency_yer', __( 'YER') ),
+		Field::make( 'text', 'currency_gbp', __( 'GBP') ),
+		Field::make( 'text', 'currency_chf', __( 'CHF') ),
+		Field::make( 'text', 'currency_cad', __( 'CAD') ),
+		Field::make( 'text', 'currency_aud', __( 'AUD') ),
+		Field::make( 'text', 'currency_cny', __( 'CNY') ),
+		Field::make( 'text', 'currency_rub', __( 'RUB') ),
+	) );
 		
 			
 				
