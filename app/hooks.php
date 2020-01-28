@@ -53,8 +53,29 @@ add_filter( 'carbon_fields_map_field_api_key', 'app_filter_carbon_fields_google_
  * ------------------------------------------------------------------------
  */
 
- 
+add_action('update_currency_exchange_rate', function () {
+	$apikey = carbon_get_theme_option( 'fg_openexchangerates_api_key' );
+     
+  $response  = wp_remote_get( 'https://openexchangerates.org/api/latest.json?app_id=' . $apikey);
+  $apiData =json_decode($response['body'], true);
 
+	if ($apiData && !isset($apiData['error'])) {
+		$currency = ['eur','sar','aed','kwd','omr','qar','bhd','jod','dzd','yer','gbp','chf','chf','cad','aud','cny','rub'];
+
+    $try = $apiData['rates']['TRY'];
+
+    carbon_set_theme_option( 'currency_lastupdate', $apiData['timestamp'] );
+    carbon_set_theme_option( 'currency_usd', 1 / $try );
+
+    foreach ($currency as $curr) {
+      carbon_set_theme_option( 'currency_' . $curr, $apiData['rates'][strtoupper($curr)]  / $try );
+    }
+	}
+});
+
+if (! wp_next_scheduled ( 'delete_must_be_deleted_users' )) {
+	wp_schedule_event(time(), 'hourly', 'delete_must_be_deleted_users');
+}
 
 /**
  * ------------------------------------------------------------------------
