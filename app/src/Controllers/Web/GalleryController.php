@@ -20,7 +20,7 @@ class GalleryController
 			$galleryUrls[] = $domainName = str_replace(['https://','http://'], "https://cdn.statically.io/img/", wp_get_attachment_url( $id ));
 		}
 
-		return \WPEmerge\json(['temp'=> $galleryIds,'results'=> $galleryUrls]
+		return \WPEmerge\json(['results'=> $galleryUrls]
 		);
 	}
 
