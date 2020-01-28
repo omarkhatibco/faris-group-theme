@@ -46,8 +46,20 @@ add_action( 'carbon_fields_register_fields', 'app_bootstrap_carbon_fields_regist
 add_filter( 'carbon_fields_map_field_api_key', 'app_filter_carbon_fields_google_maps_api_key' );
 
 
+
+/**
+ * ------------------------------------------------------------------------
+ * Cron Job for currency converter
+ * ------------------------------------------------------------------------
+ */
+
+ 
+
+
 /**
  * ------------------------------------------------------------------------
  * Rest Options from https://www.danielauener.com/wordpress-rest-api-extensions-for-going-headless-wp/#slug
  * ------------------------------------------------------------------------
  */
+
+

@@ -16,6 +16,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Using our ExampleController to handle the homepage, for example.
 // phpcs:ignore
 // Route::get()->url( '/' )->handle( 'ExampleController@home' );
+Route::url( '/api/' )->group( function () {
+		// Group routes go here, for example:
+		// Route::url( '/auth/' )->group( function () {
+
+		// 	Route::post()->url( 'login' )->handle( 'AuthController@login' );
+		// 	Route::post()->url( 'register' )->handle( 'AuthController@register');
+		// 	Route::post()->url( 'activate' )->handle( 'AuthController@activate');
+
+		// 	Route::get()->url( 'currentuser' )->handle( 'AuthController@getCurrentUser' );
+		// 	Route::post()->url( 'currentuser' )->handle( 'AuthController@updateCurrentUser' );
+
+		// });
+
+		Route::get()->url( '/test' )->handle( 'TestController@index' );
+
+} );
+
 
 // If we do not want to hardcode a url, we can use one of the available route conditions instead.
 // phpcs:ignore
