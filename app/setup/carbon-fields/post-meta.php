@@ -126,7 +126,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 					Field::make( 'text', 'note_en', __( 'Note EN') ),
 					// Field::make( 'text', 'note_tr', __( 'Note TR') ),
 
-					Field::make( 'image', 'image', __( 'Image' ) )
+					Field::make( 'image', 'image', __( 'Image' ) )->set_value_type( 'url' )
 
 
 				))
@@ -166,11 +166,13 @@ Container::make( 'post_meta', __( 'Property Data') )
 		Field::make( 'media_gallery', 'media_gallery', __( 'Media Gallery' ) )
 		->set_type( array('image') )
 		->set_duplicates_allowed(false)
+		->set_value_type( 'url' )
 		->set_visible_in_rest_api(true),
 
 		Field::make( 'media_gallery', 'attachments', __( 'Attachment' ) )
 		->set_type( array('doc','pdf') )
 		->set_duplicates_allowed(false)
+		->set_value_type( 'url' )
 		->set_visible_in_rest_api(true),
 
 		Field::make( 'oembed', 'oembed', __( 'Video' ) )
