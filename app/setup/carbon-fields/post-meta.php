@@ -90,6 +90,9 @@ Container::make( 'post_meta', __( 'Property Data') )
 			Field::make( 'checkbox', 'is_help_in_citizenship', __( 'Is Help In Citizenship ?' ) )
 			->set_visible_in_rest_api(true),
 
+			Field::make( 'checkbox', 'is_featured', __( 'Show this in Slider ?' ) )
+			->set_visible_in_rest_api(true),
+
 	))
 	->add_tab( __( 'Appartment Informations ' ), array(
 		Field::make('complex', 'appartments', __('Appartment Informations '))
