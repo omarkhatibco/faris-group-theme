@@ -167,7 +167,6 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 		Field::make( 'file', 'attachments', __( 'Attachment' ) )
 		->set_type( array('doc','pdf') )
-		->set_duplicates_allowed(false)
 		->set_visible_in_rest_api(true),
 
 		Field::make( 'oembed', 'oembed', __( 'Video' ) )
