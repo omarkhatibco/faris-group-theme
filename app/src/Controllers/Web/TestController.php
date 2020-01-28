@@ -20,7 +20,7 @@ class TestController
     
     
 
-    $currency = ['eur','sar','aed','kwd','omr','qar','bhd','jor','dzd','yer','gbp','chf','chf','cad','aud','cny','rub'];
+    $currency = ['eur','sar','aed','kwd','omr','qar','bhd','jod','dzd','yer','gbp','chf','chf','cad','aud','cny','rub'];
 
     $try = $apiData['rates']['TRY'];
     $data;

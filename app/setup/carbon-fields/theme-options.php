@@ -106,7 +106,7 @@ Container::make( 'theme_options', __( 'Property Options') )
 		Field::make( 'text', 'currency_omr', __( 'OMR') ),
 		Field::make( 'text', 'currency_qar', __( 'QAR') ),
 		Field::make( 'text', 'currency_bhd', __( 'BHD') ),
-		Field::make( 'text', 'currency_jor', __( 'JOR') ),
+		Field::make( 'text', 'currency_jod', __( 'JOD') ),
 		Field::make( 'text', 'currency_dzd', __( 'DZD') ),
 		Field::make( 'text', 'currency_yer', __( 'YER') ),
 		Field::make( 'text', 'currency_gbp', __( 'GBP') ),
