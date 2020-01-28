@@ -60,6 +60,7 @@ add_action('update_currency_exchange_rate', function () {
   $apiData =json_decode($response['body'], true);
 
 	if ($apiData && !isset($apiData['error'])) {
+		wp_mail("webmaster@rockt.co", "Subject", "Message");
 		$currency = ['eur','sar','aed','kwd','omr','qar','bhd','jod','dzd','yer','gbp','chf','chf','cad','aud','cny','rub'];
 
     $try = $apiData['rates']['TRY'];
