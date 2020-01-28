@@ -16,6 +16,7 @@ Container::make( 'theme_options', __( 'Theme Options') )
 	->set_page_parent('options-general.php')
 	->add_fields( array(
 		Field::make( 'text', 'crb_google_maps_api_key', __( 'Google Maps API Key') ),
+		Field::make( 'text', 'fg_openexchangerates_api_key', __( 'Open Exchange Rates.org API Key') ),
 		Field::make('complex', 'fgw_socials', __('Social Media'))
 			->set_collapsed(true)
 			->add_fields(array(

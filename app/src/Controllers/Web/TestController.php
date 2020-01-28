@@ -10,8 +10,9 @@ class TestController
 
 	public function index(Request $request, $view)
 	{
-
-    $response  = wp_remote_get( 'https://openexchangerates.org/api/latest.json?app_id=ed7245e0b2e2444a8b7a6494c9d7fea3');
+    $apikey = carbon_get_theme_option( 'fg_openexchangerates_api_key' );
+     
+    $response  = wp_remote_get( 'https://openexchangerates.org/api/latest.json?app_id=' . $apikey);
     $apiData =json_decode($response['body'], true);
 
     if ($apiData && isset($apiData['error'])) {
