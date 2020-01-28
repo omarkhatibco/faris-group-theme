@@ -30,10 +30,10 @@ class TestController
     foreach ($currency as $curr) {
       $data[$curr] = $apiData['rates'][strtoupper($curr)]  / $try;
     }
-    
 
 
-		return \WPEmerge\json($apiData);
+
+		return \WPEmerge\json($data);
 	}
 
 }
