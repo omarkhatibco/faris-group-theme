@@ -83,7 +83,10 @@ if (!wp_next_scheduled( 'update_currency_exchange_rate' )) {
  */
 
  function wprc_add_custom_endpoint( $allowed_endpoints ) {
-    if ( ! isset( $allowed_endpoints[ 'api' ] ) || ! in_array( 'gallery', $allowed_endpoints[ 'api' ] ) ) {
+   var_dump($allowed_endpoints);
+    if ( ! isset( $allowed_endpoints[ 'api' ] ) || 
+    ! in_array( 'gallery', $allowed_endpoints[ 'api' ] ) 
+    ) {
         $allowed_endpoints[ 'api' ][] = 'gallery';
     }
     return $allowed_endpoints;
