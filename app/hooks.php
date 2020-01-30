@@ -89,6 +89,7 @@ if (!wp_next_scheduled( 'update_currency_exchange_rate' )) {
     ) {
         $allowed_endpoints[ 'api' ][] = 'gallery';
     }
+     var_dump($allowed_endpoints);
     return $allowed_endpoints;
 }
 add_filter( 'wp_rest_cache/allowed_endpoints', 'wprc_add_custom_endpoint', 10, 1);
