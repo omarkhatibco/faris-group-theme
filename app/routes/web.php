@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // phpcs:ignore
 // Route::get()->url( '/' )->handle( 'ExampleController@home' );
 Route::get()->url( '/test' )->handle( 'TestController@index' );
-Route::url( '/api/' )->group( function () {
+Route::url( '/wp-json/' )->group( function () {
 		// Group routes go here, for example:
 		// Route::url( '/auth/' )->group( function () {
 
