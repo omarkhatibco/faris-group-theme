@@ -165,7 +165,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 	->add_tab( __( 'Galleries & Attachments' ), array(
 		Field::make( 'media_gallery', 'media_gallery', __( 'Media Gallery' ) )
 		->set_type( array('image') )
-		->set_duplicates_allowed(false),
+		->set_duplicates_allowed(false)
+		->set_visible_in_rest_api(true),
 
 		Field::make( 'file', 'attachments', __( 'Attachment' ) )
 		->set_type( array('doc','pdf') )
