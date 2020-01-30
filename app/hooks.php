@@ -78,6 +78,21 @@ if (!wp_next_scheduled( 'update_currency_exchange_rate' )) {
 
 /**
  * ------------------------------------------------------------------------
+ * cache custom endpoint
+ * ------------------------------------------------------------------------
+ */
+
+ function wprc_add_custom_endpoint( $allowed_endpoints ) {
+    if ( ! isset( $allowed_endpoints[ 'api/' ] ) || ! in_array( 'products', $allowed_endpoints[ 'myapi/' ] ) ) {
+        $allowed_endpoints[ 'myapi/' ][] = 'gallery';
+    }
+    return $allowed_endpoints;
+}
+add_filter( 'wp_rest_cache/allowed_endpoints', 'wprc_add_custom_endpoint', 10, 1);
+
+
+/**
+ * ------------------------------------------------------------------------
  * Rest Options from https://www.danielauener.com/wordpress-rest-api-extensions-for-going-headless-wp/#slug
  * ------------------------------------------------------------------------
  */
