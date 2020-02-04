@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Using our ExampleController to handle the homepage, for example.
 // phpcs:ignore
 // Route::get()->url( '/' )->handle( 'ExampleController@home' );
-Route::get()->url( '/test' )->handle( 'TestController@index' );
+
 Route::url( '/api/' )->group( function () {
 		// Group routes go here, for example:
 		// Route::url( '/auth/' )->group( function () {
@@ -30,6 +30,7 @@ Route::url( '/api/' )->group( function () {
 
 		// });
 
+		Route::get()->url( '/config' )->handle( 'ConfigController@index' );
 		Route::get()->url( '/gallery/{postId}' )->handle( 'GalleryController@index' );
 
 } );
