@@ -20,7 +20,7 @@ Container::make( 'theme_options', __( 'Theme Options') )
 		Field::make('complex', 'fgw_socials', __('Social Media'))
 			->set_collapsed(true)
 			->add_fields(array(
-				Field::make('select', 'fgw_social_type', __('Social Media Type', 'mtw'))
+				Field::make('select', 'type', __('Social Media Type', 'mtw'))
 					->set_options(array(
 						'facebook' => 'Facebook',
 						'instagram' => 'Instagram',
