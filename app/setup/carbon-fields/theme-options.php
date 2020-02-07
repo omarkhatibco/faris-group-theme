@@ -28,10 +28,28 @@ Container::make( 'theme_options', __( 'Theme Options') )
 						'youtube' => 'Youtube',
 						'linkedin' => 'LinkedIn',
 					)),
-				Field::make('urlpicker', 'fgw_social_link', __('URL', 'mtw'))
+				Field::make('urlpicker', 'link', __('URL', 'mtw'))
 					->set_help_text('Enter your Link url'),
 			))
-			->set_header_template('Social Network: <%- fgw_social_type %>')
+			->set_header_template('Social Network: <%- fgw_social_type %>'),
+
+			Field::make( 'image', 'fgw_map_placeholder', __( 'Map Placeholder' ) )
+			->set_value_type( 'url' ),
+
+			Field::make( 'separator', 'fg_separator1', __( 'About Us Options' ) ),
+
+			Field::make( 'image', 'fgw_aboutus_intro_image', __( 'Intro Image' ) )
+			->set_value_type( 'url' ),
+			Field::make( 'image', 'fgw_aboutus_service_image', __( 'Service Image' ) )
+			->set_value_type( 'url' ),
+			Field::make( 'image', 'fgw_aboutus_whyus_image', __( 'Why Us Image' ) )
+			->set_value_type( 'url' ),
+			Field::make( 'oembed', 'fgw_aboutus_intro_video', __( 'About Us Video' ) ),
+
+		
+
+
+
 
 	) );
 
