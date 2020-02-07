@@ -31,7 +31,7 @@ Container::make( 'theme_options', __( 'Theme Options') )
 				Field::make('urlpicker', 'link', __('URL', 'mtw'))
 					->set_help_text('Enter your Link url'),
 			))
-			->set_header_template('Social Network: <%- fgw_social_type %>'),
+			->set_header_template('Social Network: <%- type %>'),
 
 			Field::make( 'image', 'fgw_map_placeholder', __( 'Map Placeholder' ) )
 			->set_value_type( 'url' ),
