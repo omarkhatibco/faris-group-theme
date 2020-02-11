@@ -69,6 +69,7 @@ add_action('update_currency_exchange_rate', function () {
     foreach ($currency as $curr) {
       carbon_set_theme_option( 'currency_' . $curr, $apiData['rates'][strtoupper($curr)]  / $try );
     }
+    carbon_set_theme_option( 'currency_try', 1 );
 	}
 });
 

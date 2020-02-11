@@ -15,6 +15,7 @@ class ConfigController
 			'lastUpdate' => carbon_get_theme_option('currency_lastupdate'),
 			'usd' => carbon_get_theme_option('currency_usd'),
 			'eur' => carbon_get_theme_option('currency_eur'),
+			'try' => carbon_get_theme_option('currency_try'),
 			'sar' => carbon_get_theme_option('currency_sar'),
 			'aed' => carbon_get_theme_option('currency_aed'),
 			'kwd' => carbon_get_theme_option('currency_kwd'),
