@@ -86,11 +86,13 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 			Field::make( 'text', 'lot_size', __( 'Lot Size' ) )
 				->set_attribute( 'type', 'number' )
-				->set_attribute( 'min', '0' ),
+				->set_attribute( 'min', '0' )
+				->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'appartment_count', __( 'Appartment Count' ) )
 				->set_attribute( 'type', 'number' )
-				->set_attribute( 'min', '0' ),
+				->set_attribute( 'min', '0' )
+				->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_project_ready', __( 'Is Project Ready ?' ) )
 			->set_visible_in_rest_api(true),
