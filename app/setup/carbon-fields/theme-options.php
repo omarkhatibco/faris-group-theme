@@ -134,7 +134,6 @@ Container::make( 'theme_options', __( 'Property Options') )
 		Field::make( 'text', 'currency_aud', __( 'AUD') ),
 		Field::make( 'text', 'currency_cny', __( 'CNY') ),
 		Field::make( 'text', 'currency_rub', __( 'RUB') ),
-		Field::make( 'text', 'currency_rub', __( 'RUB') ),
 		Field::make( 'text', 'currency_try', __( 'TRY') ),
 	) );
 		
