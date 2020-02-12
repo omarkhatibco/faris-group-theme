@@ -163,7 +163,17 @@ Container::make( 'post_meta', __( 'Property Data') )
 							'shoppingMall' => 'Shopping Mall',
 					]),
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'value', __( 'Value') ),
+					Field::make( 'text', 'value_number', __( 'Value') )
+					->set_attribute( 'type', 'number' )
+					->set_attribute( 'min', '0' ),
+					Field::make( 'select', 'value_type', __( 'Value Type') )
+					->set_options([
+							'hour' => 'Hour',
+							'minute' => 'Minute',
+							'kilometer' => 'Kilometer',
+							'meter' => 'Meter',
+					]),
+
 					// Field::make( 'text', 'title_en', __( 'Title EN') ),
 					// Field::make( 'text', 'title_tr', __( 'Title TR') ),
 				))
