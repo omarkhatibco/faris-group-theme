@@ -160,6 +160,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 							'railwayStation' => 'Railway Station',
 							'university' => 'University',
 							'busStation' => 'Bus Station',
+							'shoppingMall' => 'Shopping Mall',
 					]),
 					Field::make( 'text', 'title', __( 'Title') ),
 					Field::make( 'text', 'value', __( 'Value') ),
