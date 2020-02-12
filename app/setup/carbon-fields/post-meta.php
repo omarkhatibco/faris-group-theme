@@ -145,12 +145,25 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 
 	))
-	->add_tab( __( 'Features' ), array(
-		Field::make('complex', 'features', __('Features '))
+	->add_tab( __( 'Distances' ), array(
+		Field::make('complex', 'distances', __('Distances'))
 				->set_collapsed(true)
 				->add_fields(array(
+					Field::make( 'select', 'type', __( 'Type') )
+					->set_options([
+							'highway' => 'Highway',
+							'airport' => 'Airport',
+							'supermaket' => 'Supermarket',
+							'hospital' => 'Hospital',
+							'park' => 'Park',
+							'bank' => 'Bank',
+							'railwayStation' => 'Railway Station',
+							'university' => 'University',
+							'busStation' => 'Bus Station',
+					]),
 					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_en', __( 'Title EN') ),
+					Field::make( 'text', 'value', __( 'Value') ),
+					// Field::make( 'text', 'title_en', __( 'Title EN') ),
 					// Field::make( 'text', 'title_tr', __( 'Title TR') ),
 				))
 				->set_header_template('Feature: <%- title %>')
