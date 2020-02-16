@@ -34,7 +34,7 @@ class ConfigController
 		];
 
 		$apiKeys = [
-			'googleMap' => carbon_get_theme_option('crb_google_maps_api_key'),
+			// 'googleMap' => carbon_get_theme_option('crb_google_maps_api_key'),
 		];
 
 		$aboutUs = [
@@ -42,6 +42,10 @@ class ConfigController
 			'ServiceImage' => carbon_get_theme_option('fgw_aboutus_service_image'),
 			'whyUsImage' => carbon_get_theme_option('fgw_aboutus_whyus_image'),
 			'introVideo' => carbon_get_theme_option('fgw_aboutus_intro_video'),
+		];
+
+		$properties = [
+			'IntroImage' => carbon_get_theme_option('fgw_properties_intro_image'),
 		];
 
 
@@ -55,6 +59,7 @@ class ConfigController
 			'amenities' => carbon_get_theme_option('fgw_amenities'),
 			'mapPlaceholder' => carbon_get_theme_option('fgw_map_placeholder'),
 			'aboutUs' => $aboutUs,
+			'properties' => $properties,
 			'currency' => $currency
 		];
 
