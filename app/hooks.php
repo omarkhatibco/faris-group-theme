@@ -101,3 +101,9 @@ add_filter( 'wp_rest_cache/allowed_endpoints', 'wprc_add_custom_endpoint', 10, 1
  */
 
 
+add_filter('rest_property_collection_params', function ($params) {
+	if (isset($params['per_page'])) {
+		$params['per_page']['maximum'] = 500;
+	}
+	return $params;
+}, 10, 1);
