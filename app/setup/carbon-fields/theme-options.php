@@ -46,10 +46,10 @@ Container::make( 'theme_options', __( 'Theme Options') )
 			->set_value_type( 'url' ),
 			Field::make( 'oembed', 'fgw_aboutus_intro_video', __( 'About Us Video' ) ),
 
-		
+			Field::make( 'separator', 'fg_separator2', __( 'Properties Options' ) ),
 
-
-
+			Field::make( 'image', 'fgw_properties_intro_image', __( 'Properties Image' ) )
+			->set_value_type( 'url' ),
 
 	) );
 
