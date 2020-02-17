@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @link https://codex.wordpress.org/Post_Thumbnails
  */
-add_theme_support( 'post-thumbnails' );
+// add_theme_support( 'post-thumbnails' );
 
 /**
  * Support document title tag.
@@ -62,14 +62,14 @@ add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'ga
  *
  * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
  */
-add_theme_support( 'wp-block-styles' );
+// add_theme_support( 'wp-block-styles' );
 
 /**
  * Support wide alignment for editor blocks.
  *
  * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
  */
-add_theme_support( 'align-wide' );
+// add_theme_support( 'align-wide' );
 
 /**
  * Support custom editor block color palette.
