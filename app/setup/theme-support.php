@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @link https://codex.wordpress.org/Post_Thumbnails
  */
-// add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails' );
 
 /**
  * Support document title tag.
