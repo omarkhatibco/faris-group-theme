@@ -110,14 +110,13 @@ add_filter('rest_property_collection_params', function ($params) {
 
 
 add_filter( 'rest_prepare_property', function( $response, $property, $request ) {
-   $getPrice = function ($obj)
-    {
+   $getPrice = function ($obj) {
       return $obj['price'];
-    }
-   $getSize = function ($obj)
-    {
+    };
+
+    $getSize = function ($obj) {
       return $obj['min_size'];
-    }
+    };
     
     
     $id = $property->ID;
