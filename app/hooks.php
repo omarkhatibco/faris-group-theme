@@ -110,13 +110,26 @@ add_filter('rest_property_collection_params', function ($params) {
 
 
 add_filter( 'rest_prepare_property', function( $response, $property, $request ) {
+    function getPrice($obj)
+    {
+      return obj['price'];
+    }
+    function getSize($obj)
+    {
+      return obj['min_size'];
+    }
+    
     
     $id = $property->ID;
+    $apartments = carbon_get_post_meta( $id, 'appartments' );
 
-     $response->data[ 'min_price' ] = $id;
-     $response->data[ 'min_size' ] = $id;
-     $response->data[ 'max_price' ] = $id;
-     $response->data[ 'max_size' ] = $id;
+    $prices = array_map('getPrice', $apartments);
+    $sizes = array_map('getSize', $apartments);
+
+     $response->data[ 'min_price' ] = min($prices);
+     $response->data[ 'min_size' ]  = min($sizes);
+     $response->data[ 'max_price' ] = max($prices);
+     $response->data[ 'max_size' ]  = max($sizes);
 
     return $response;
 }, 10, 3 );
