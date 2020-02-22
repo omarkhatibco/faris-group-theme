@@ -107,3 +107,16 @@ add_filter('rest_property_collection_params', function ($params) {
 	}
 	return $params;
 }, 10, 1);
+
+
+add_filter( 'rest_prepare_property', function( $response, $property, $request ) {
+    
+    $id = $property->ID;
+
+     $response->data[ 'min_price' ] = $id;
+     $response->data[ 'min_size' ] = $id;
+     $response->data[ 'max_price' ] = $id;
+     $response->data[ 'max_size' ] = $id;
+
+    return $response;
+}, 10, 3 );
