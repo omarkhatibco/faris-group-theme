@@ -125,10 +125,10 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
     $prices = array_map($getPrice, $apartments);
     $sizes = array_map($getSize, $apartments);
 
-     $response->data[ 'min_price' ] = min($prices);
-     $response->data[ 'min_size' ]  = min($sizes);
-     $response->data[ 'max_price' ] = max($prices);
-     $response->data[ 'max_size' ]  = max($sizes);
+     $response->data[ 'min_price' ] = intval(min($prices));
+     $response->data[ 'min_size' ]  = intval(min($sizes));
+     $response->data[ 'max_price' ] = intval(max($prices));
+     $response->data[ 'max_size' ]  = intval(max($sizes));
 
     return $response;
 }, 10, 3 );
