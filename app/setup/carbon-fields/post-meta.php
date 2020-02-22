@@ -15,19 +15,19 @@ use Carbon_Fields\Field\Field;
 // phpcs:disable
 
 	
-Container::make( 'post_meta', __( 'Translation') )
-	->where( 'post_type', '=', 'property' )
-	->add_tab( __( 'English Translation' ), array(
+// Container::make( 'post_meta', __( 'Translation') )
+// 	->where( 'post_type', '=', 'property' )
+// 	->add_tab( __( 'English Translation' ), array(
 
-			Field::make( 'checkbox', 'active_en', __( 'Show project in this Language' ) )
-			->set_visible_in_rest_api(true),
+// 			Field::make( 'checkbox', 'active_en', __( 'Show project in this Language' ) )
+// 			->set_visible_in_rest_api(true),
 
-			Field::make( 'text', 'title_en', __( 'Title') )
-			->set_visible_in_rest_api(true),
+// 			Field::make( 'text', 'title_en', __( 'Title') )
+// 			->set_visible_in_rest_api(true),
 
-			Field::make( 'rich_text', 'content_en', __( 'Description') )
-			->set_visible_in_rest_api(true),
-	));
+// 			Field::make( 'rich_text', 'content_en', __( 'Description') )
+// 			->set_visible_in_rest_api(true),
+// 	));
 	// ->add_tab( __( 'Turkish Translation' ), array(
 
 	// 		Field::make( 'checkbox', 'active_tr', __( 'Show project in this Language' ) )
