@@ -132,3 +132,28 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
 
     return $response;
 }, 10, 3 );
+
+
+
+add_action( 'save_post',function ( $post_id ) {
+  
+
+
+});
+
+
+add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
+    if ( get_post_type( $post_id ) !== 'property' ) {
+        return false;
+    }
+
+    $getFirstChar = function ($string) {
+      return $string[0];
+    };
+
+    $slug = get_post_field( 'post_name', $post_id );
+
+    $slugStr = 'fg-' .get_the_date( 'Y', $post_id ) . '-' . $post_id . '-' . implode('',array_map($getFirstChar, explode("-", $slug)));
+
+    update_post_meta( $post_id, '_property_hash_id', $slugStr );
+});

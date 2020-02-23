@@ -14,17 +14,6 @@ use Carbon_Fields\Field\Field;
 
 // phpcs:disable
 
-$getSlug = function () {
-	$getFirstChar = function ($string) {
-		return $string[0];
-	};
-
-	$id = $_GET['post'];
-	$slug = get_post_field( 'post_name', $id );
-	
-	return 'fg-' .get_the_date( 'Y', $id ) . '-' . $id . '-' . implode('',array_map($getFirstChar, explode("-", $slug)));
-};
-
 
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
@@ -32,7 +21,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 
 			Field::make( 'text', 'property_hash_id', __( 'ID') )
 			->set_attribute( 'readOnly', '' )
-			->set_attribute( 'placeholder', $getSlug() )
+			->set_attribute( 'placeholder', 'it will be showed after you save' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_installment_available', __( 'Is Installment Available ?' ) )
