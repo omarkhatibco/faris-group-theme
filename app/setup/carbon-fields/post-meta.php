@@ -20,8 +20,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 	->add_tab( __( 'Global Informations ' ), array(
 
 			Field::make( 'text', 'property_hash_id', __( 'ID') )
-			->set_attribute( 'readOnly', '' )
-			->set_attribute( 'placeholder', 'it will be showed after you save' )
+			->set_attribute( 'readOnly', 'readOnly' )
+			->set_attribute( 'placeholder', 'Will be showen after you save.' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_installment_available', __( 'Is Installment Available ?' ) )
