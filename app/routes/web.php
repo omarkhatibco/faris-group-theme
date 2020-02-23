@@ -31,7 +31,7 @@ Route::url( '/api/' )->group( function () {
 		// });
 
 		Route::get()->url( '/config' )->handle( 'ConfigController@index' );
-		Route::get()->url( '/gallery/{postId}' )->handle( 'GalleryController@index' );
+		// Route::get()->url( '/gallery/{postId}' )->handle( 'GalleryController@index' );
 
 } );
 
