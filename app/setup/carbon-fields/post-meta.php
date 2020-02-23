@@ -11,41 +11,23 @@
 
 use Carbon_Fields\Container\Container;
 use Carbon_Fields\Field\Field;
-global $post;
+
 // phpcs:disable
 
-	
-// Container::make( 'post_meta', __( 'Translation') )
-// 	->where( 'post_type', '=', 'property' )
-// 	->add_tab( __( 'English Translation' ), array(
+$getSlug = function () {
+	$id = $_GET['post'];
 
-// 			Field::make( 'checkbox', 'active_en', __( 'Show project in this Language' ) )
-// 			->set_visible_in_rest_api(true),
+	return 'fg-' .get_the_date( 'Y', $id ) . '-' . $id . '-' ;
+};
 
-// 			Field::make( 'text', 'title_en', __( 'Title') )
-// 			->set_visible_in_rest_api(true),
 
-// 			Field::make( 'rich_text', 'content_en', __( 'Description') )
-// 			->set_visible_in_rest_api(true),
-// 	));
-	// ->add_tab( __( 'Turkish Translation' ), array(
-
-	// 		Field::make( 'checkbox', 'active_tr', __( 'Show project in this Language' ) )
-	// 		->set_visible_in_rest_api(true),
-
-	// 		Field::make( 'text', 'title_tr', __( 'Title') )
-	// 		->set_visible_in_rest_api(true),
-	// 		Field::make( 'rich_text', 'content_tr', __( 'Description') )
-	// 		->set_visible_in_rest_api(true),
-	// ));
-var_dump($post->ID);
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
 	->add_tab( __( 'Global Informations ' ), array(
 
 			Field::make( 'text', 'property_hash_id', __( 'ID') )
 			->set_attribute( 'readOnly', '' )
-			->set_attribute( 'placeholder', 'fg-' .get_the_date( 'Y' ) . '-' . get_the_ID() . '-' )
+			->set_attribute( 'placeholder', $getSlug() )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_installment_available', __( 'Is Installment Available ?' ) )
