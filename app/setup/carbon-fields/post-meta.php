@@ -15,9 +15,14 @@ use Carbon_Fields\Field\Field;
 // phpcs:disable
 
 $getSlug = function () {
+	$getFirstChar = function ($string) {
+		return $string[0];
+	};
+
 	$id = $_GET['post'];
 	$slug = get_post_field( 'post_name', $id );
-	return 'fg-' .get_the_date( 'Y', $id ) . '-' . $id . '-' . $slug;
+	
+	return 'fg-' .get_the_date( 'Y', $id ) . '-' . $id . '-' . implode('',array_map($getFirstChar, explode("-", $slug)));
 };
 
 
