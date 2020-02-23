@@ -57,7 +57,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 			Field::make( 'text', 'building_date', __( 'Building Date' ) )
 			->set_attribute( 'type', 'number' )
 			->set_attribute( 'min', '1500' )
-			->set_attribute( 'min', '2050' )
+			->set_attribute( 'max', '2050' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'delivery_date', __( 'Delivery Date' ) )
