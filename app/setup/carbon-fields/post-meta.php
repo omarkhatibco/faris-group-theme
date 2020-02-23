@@ -11,7 +11,7 @@
 
 use Carbon_Fields\Container\Container;
 use Carbon_Fields\Field\Field;
-
+global $post;
 // phpcs:disable
 
 	
@@ -38,7 +38,7 @@ use Carbon_Fields\Field\Field;
 	// 		Field::make( 'rich_text', 'content_tr', __( 'Description') )
 	// 		->set_visible_in_rest_api(true),
 	// ));
-
+var_dump($post);
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
 	->add_tab( __( 'Global Informations ' ), array(
