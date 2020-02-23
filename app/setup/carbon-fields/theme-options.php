@@ -33,9 +33,6 @@ Container::make( 'theme_options', __( 'Theme Options') )
 			))
 			->set_header_template('Social Network: <%- type %>'),
 
-			Field::make( 'image', 'fgw_map_placeholder', __( 'Map Placeholder' ) )
-			->set_value_type( 'url' ),
-
 			Field::make( 'separator', 'fg_separator1', __( 'About Us Options' ) ),
 
 			Field::make( 'image', 'fgw_aboutus_intro_image', __( 'Intro Image' ) )
@@ -52,66 +49,6 @@ Container::make( 'theme_options', __( 'Theme Options') )
 			->set_value_type( 'url' ),
 
 	) );
-
-	
-Container::make( 'theme_options', __( 'Property Options') )
-	->set_page_parent('options-general.php')
-	->add_tab( __( 'Types' ), array(
-				//* Types
-        Field::make('complex', 'fgw_types', __('Types'))
-				->set_collapsed(true)
-				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_en', __( 'Title EN') ),
-					Field::make( 'text', 'title_tr', __( 'Title TR') ),
-					Field::make('text', 'slug'),
-				))
-				->set_header_template('Type: <%- title %>'),
-
-        Field::make('complex', 'fgw_contract_types', __('Contract Types'))
-				->set_collapsed(true)
-				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_en', __( 'Title EN') ),
-					Field::make( 'text', 'title_tr', __( 'Title TR') ),
-					Field::make('text', 'slug'),
-				))
-				->set_header_template('Contract Type: <%- title %>'),
-    ) )
-    ->add_tab( __( 'Locations' ), array(
-        	//* Locations
-				Field::make('complex', 'fgw_locations', __('Locations'))
-				->set_collapsed(true)
-				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_en', __( 'Title EN') ),
-					Field::make( 'text', 'title_tr', __( 'Title TR') ),
-					Field::make('text', 'slug'),
-					Field::make('complex', 'fgw_sublocations', __('Sublocations'))
-						->set_collapsed(true)
-						->add_fields(array(
-							Field::make( 'text', 'title', __( 'Title') ),
-							Field::make( 'text', 'title_en', __( 'Title EN') ),
-							Field::make( 'text', 'title_tr', __( 'Title TR') ),
-							Field::make('text', 'slug'),
-						))
-						->set_header_template('Sublocations: <%- title %>'),
-				))
-				->set_header_template('Location: <%- title %>'),
-    ))
-    ->add_tab( __( 'Amenities' ), array(
-        	//* Locations
-				Field::make('complex', 'fgw_amenities', __('Amenities'))
-				->set_collapsed(true)
-				->add_fields(array(
-					Field::make( 'text', 'title', __( 'Title') ),
-					Field::make( 'text', 'title_en', __( 'Title EN') ),
-					Field::make( 'text', 'title_tr', __( 'Title TR') ),
-					Field::make('text', 'slug'),
-				))
-				->set_header_template('Amenities: <%- title %>'),
-		));
-		
 
 	Container::make( 'theme_options', __( 'Currency Converter') )
 	->set_page_parent('options-general.php')
@@ -136,15 +73,3 @@ Container::make( 'theme_options', __( 'Property Options') )
 		Field::make( 'text', 'currency_rub', __( 'RUB') ),
 		Field::make( 'text', 'currency_try', __( 'TRY') ),
 	) );
-		
-			
-				
-
-			/* 
-			
-			sar according to try = 3.751738 / 5.94165   sar / try
-			
-			
-			*/
-
-

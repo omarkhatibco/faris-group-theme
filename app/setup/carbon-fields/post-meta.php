@@ -42,57 +42,39 @@ use Carbon_Fields\Field\Field;
 Container::make( 'post_meta', __( 'Property Data') )
 	->where( 'post_type', '=', 'property' )
 	->add_tab( __( 'Global Informations ' ), array(
-		Field::make( 'select', 'type', __( 'Type' ) )
-			->set_options(function () {
-				$options = [];
-				$themeOptionsTypes = carbon_get_theme_option( 'fgw_types' );
-				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
-				}
-				return $options;
-			})
+
+			Field::make( 'text', 'property_hashed_id', __( 'ID') )
+			->set_attribute( 'readOnly', '(***) ***-****' )
+			->set_attribute( 'placeholder', '(***) ***-****' )
 			->set_visible_in_rest_api(true),
 
-		Field::make( 'select', 'contract_type', __( 'Contract Type' ) )
-			->set_options(function () {
-				$options = [];
-				$themeOptionsTypes = carbon_get_theme_option( 'fgw_contract_types' );
-				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
-				}
-				return $options;
-			})
-			->set_visible_in_rest_api(true),
-
-			Field::make( 'set', 'payment_methods', __( 'Payment Methods' ) )
-    	->set_options( array(
-        'cash' => __( 'Cash' ),
-        'installment' => __( 'Installment' ),
-			) )
+			Field::make( 'checkbox', 'is_installment_available', __( 'Is Installment Available ?' ) )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'installment_info', __( 'Installment Info') )
 			->set_visible_in_rest_api(true),
-			Field::make( 'text', 'installment_info_en', __( 'Installment Info EN') )
-			->set_visible_in_rest_api(true),
-			// Field::make( 'text', 'installment_info_tr', __( 'Installment Info TR') )
-			// ->set_visible_in_rest_api(true),
 			
-			Field::make( 'date', 'building_date', __( 'Building Date' ) )
+			Field::make( 'text', 'building_date', __( 'Building Date' ) )
+			->set_attribute( 'type', 'number' )
+			->set_attribute( 'min', '1500' )
+			->set_attribute( 'min', '2050' )
 			->set_visible_in_rest_api(true),
 
-			Field::make( 'date', 'delivery_date', __( 'Delivery Date' ) )
+			Field::make( 'text', 'delivery_date', __( 'Delivery Date' ) )
+			->set_attribute( 'type', 'number' )
+			->set_attribute( 'min', '1500' )
+			->set_attribute( 'max', '2050' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'lot_size', __( 'Lot Size' ) )
-				->set_attribute( 'type', 'number' )
-				->set_attribute( 'min', '0' )
-				->set_visible_in_rest_api(true),
+			->set_attribute( 'type', 'number' )
+			->set_attribute( 'min', '0' )
+			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'appartment_count', __( 'Appartment Count' ) )
-				->set_attribute( 'type', 'number' )
-				->set_attribute( 'min', '0' )
-				->set_visible_in_rest_api(true),
+			->set_attribute( 'type', 'number' )
+			->set_attribute( 'min', '0' )
+			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_project_ready', __( 'Is Project Ready ?' ) )
 			->set_visible_in_rest_api(true),
@@ -181,21 +163,6 @@ Container::make( 'post_meta', __( 'Property Data') )
 				->set_visible_in_rest_api(true),
     
 	))
-	->add_tab( __( 'Amunities' ), array(
-		Field::make( 'set', 'amenities', __( 'Amunities' ) )
-			->set_options(function () {
-				$options = [];
-				$themeOptionsTypes = carbon_get_theme_option( 'fgw_amenities' );
-				foreach($themeOptionsTypes as $item) {
-						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
-				}
-				return $options;
-			})
-			->set_visible_in_rest_api(true),
-
-    
-	))
-
 	->add_tab( __( 'Galleries & Attachments' ), array(
 		Field::make( 'media_gallery', 'media_gallery', __( 'Media Gallery' ) )
 		->set_type( array('image') )
@@ -213,39 +180,11 @@ Container::make( 'post_meta', __( 'Property Data') )
     
   ))
 	->add_tab( __( 'Location' ), array(
-		Field::make( 'select', 'location', __( 'Location' ) )
-			->set_options(function () {
-				$options = [];
-				$themeOptionsLocations = carbon_get_theme_option( 'fgw_locations' );
-				foreach($themeOptionsLocations as $item) {
-						$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
-				}
-				return $options;
-			})
-			->set_visible_in_rest_api(true),
-		Field::make( 'select', 'sublocation', __( 'Sublocation' ) )
-			->set_options(function () {
-				$options = [];
-				$themeOptionsLocations = carbon_get_theme_option( 'fgw_locations' );
-				$selectedLocationSlug= carbon_get_the_post_meta( 'location' );
-				$selectedLocationIndex = array_search($selectedLocationSlug, array_column($themeOptionsLocations, 'slug'));
-				if ($selectedLocationIndex !== false) {
-					$selectedLocationSublocations = $themeOptionsLocations[$selectedLocationIndex]['fgw_sublocations'];
-					if (is_array($selectedLocationSublocations)) {
-						foreach($selectedLocationSublocations as $item) {
-							$options[$item['slug']] = $item[function_exists('wpm_get_language') && wpm_get_language() !== 'en' ?  'title_' . wpm_get_language() : 'title'];
-						}
-					}
-				}
-
-				return $options;
-			})
-			->set_visible_in_rest_api(true),
     	Field::make( 'map', 'map' )
 			->set_position( 41.015137, 28.979530, 10 )
 			->set_visible_in_rest_api(true),
   ))
-	->add_tab( __( 'Notes' ), array(
+	->add_tab( __( 'Internal Notes' ), array(
 		Field::make( 'textarea', 'notes', __( 'Notes') ),
   ));
 
