@@ -25,6 +25,7 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_installment_available', __( 'Is Installment Available ?' ) )
+			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'text', 'installment_info', __( 'Installment Info') )
@@ -53,12 +54,16 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_project_ready', __( 'Is Project Ready ?' ) )
+			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_help_in_citizenship', __( 'Is Help In Citizenship ?' ) )
+			->set_option_value( '1' )
+			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
 			Field::make( 'checkbox', 'is_featured', __( 'Show this in Slider ?' ) )
+			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
 	))
