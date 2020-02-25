@@ -17,23 +17,27 @@ class AggregationController
 			$apartments = carbon_get_post_meta( $id, 'appartments' );
     	$prices = array_map(function ($obj) { return $obj['price']; }, $apartments);
 			$sizes = array_map(function ($obj) {return $obj['min_size'];}, $apartments);
+			$rooms = array_map(function ($obj) {return $obj['rooms_count'];}, $apartments);
+			$salons = array_map(function ($obj) {return $obj['salons_count'];}, $apartments);
 			
       return [
 		 		'min_price' => intval(min($prices)),
-      	'min_size'  => intval(min($sizes)),
-    		'max_price' => intval(max($prices)),
-      	'max_size'  => intval(max($sizes)),
+				'max_price' => intval(max($prices)),
+				'min_size'  => intval(min($sizes)),
+				'max_size'  => intval(max($sizes)),
+				'min_rooms'  => intval(min($rooms)),
+				'max_rooms'  => intval(max($rooms)),
+				'min_salons'  => intval(min($salons)),
+				'max_salons'  => intval(max($salons)),
+				
 			];
 		};
-
-
 
 		$posts = query_posts([ 
 			'post_type' => 'property',
 			'posts_per_page' => -1
 		]);
 		
-
 		$data = array_map($getData, $posts);
 
 		$data = [
@@ -41,6 +45,10 @@ class AggregationController
     	'max_price' => intval(max(array_map(function ($obj) { return $obj['max_price']; }, $data))),
       'min_size'  => intval(min(array_map(function ($obj) { return $obj['min_size']; }, $data))),
       'max_size'  => intval(max(array_map(function ($obj) { return $obj['max_size']; }, $data))),
+      'min_rooms'  => intval(min(array_map(function ($obj) { return $obj['min_rooms']; }, $data))),
+      'max_rooms'  => intval(max(array_map(function ($obj) { return $obj['max_rooms']; }, $data))),
+      'min_salons'  => intval(min(array_map(function ($obj) { return $obj['min_salons']; }, $data))),
+      'max_salons'  => intval(max(array_map(function ($obj) { return $obj['max_salons']; }, $data))),
 		];
 
 		return \WPEmerge\json($data);

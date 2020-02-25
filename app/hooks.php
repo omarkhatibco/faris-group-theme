@@ -133,30 +133,6 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
     ];
   }, $attachmentsIds);
  
-
-
-
-
-   $getPrice = function ($obj) {
-      return $obj['price'];
-    };
-
-    $getSize = function ($obj) {
-      return $obj['min_size'];
-    };
-    
-    
-    
-    $apartments = carbon_get_post_meta( $id, 'appartments' );
-
-    $prices = array_map($getPrice, $apartments);
-    $sizes = array_map($getSize, $apartments);
-
-     $response->data[ 'min_price' ] = intval(min($prices));
-     $response->data[ 'min_size' ]  = intval(min($sizes));
-     $response->data[ 'max_price' ] = intval(max($prices));
-     $response->data[ 'max_size' ]  = intval(max($sizes));
-
      $response->data[ 'attachments_data' ]  = $attachments;
      $response->data[ 'media_gallery_data' ]  = $media_gallery;
 
@@ -176,14 +152,42 @@ add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
     if ( get_post_type( $post_id ) !== 'property' ) {
         return false;
     }
-
+    // update Posth Id
     $getFirstChar = function ($string) {
       return $string[0];
     };
-
     $slug = get_post_field( 'post_name', $post_id );
-
     $slugStr = 'fg-' .get_the_date( 'Y', $post_id ) . '-' . $post_id . '-' . implode('',array_map($getFirstChar, explode("-", $slug)));
 
-    update_post_meta( $post_id, '_property_hash_id', $slugStr );
+    carbon_set_post_meta( $post_id, 'property_hash_id', $slugStr );
+
+    // get min max for (price - size - rooms - salon & baths ) + if has appartment with villa or duplex or penthouse for Aggregation 
+    $apartments = carbon_get_post_meta( $id, 'appartments' );
+
+    $prices = array_map(function ($obj) { return $obj['price']; }, $apartments);
+		$sizes = array_map(function ($obj) {return $obj['min_size'];}, $apartments);
+		$rooms = array_map(function ($obj) {return $obj['rooms_count'];}, $apartments);
+    $salons = array_map(function ($obj) {return $obj['salons_count'];}, $apartments);
+
+    $villa = array_map(function ($obj) {return $obj['is_duplex'];}, $apartments);
+    $duplex = array_map(function ($obj) {return $obj['is_villa'];}, $apartments);
+    $penthouse = array_map(function ($obj) {return $obj['is_penthouse'];}, $apartments);
+    
+    
+    carbon_set_post_meta( $post_id, 'min_price', intval(min($prices)) );
+    carbon_set_post_meta( $post_id, 'max_price', intval(max($prices)) );
+
+    carbon_set_post_meta( $post_id, 'min_size',   intval(min($sizes)) );
+    carbon_set_post_meta( $post_id, 'max_size',   intval(max($sizes)) );
+
+    carbon_set_post_meta( $post_id, 'min_rooms',  intval(min($rooms)) );
+    carbon_set_post_meta( $post_id, 'max_rooms',  intval(max($rooms)) );
+
+    carbon_set_post_meta( $post_id, 'min_salons', intval(min($salons)) );
+    carbon_set_post_meta( $post_id, 'max_salons', intval(max($salons)) );
+
+    carbon_set_post_meta( $post_id, 'has_villa', in_array(true, $villa) ? 1 : '' );
+    carbon_set_post_meta( $post_id, 'has_duplex', in_array(true, $duplex) ? 1 : '' );
+    carbon_set_post_meta( $post_id, 'has_penthouse', in_array(true, $penthouse) ? 1 : '' );
+  
 });

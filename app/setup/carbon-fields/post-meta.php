@@ -167,6 +167,59 @@ Container::make( 'post_meta', __( 'Property Data') )
   ))
 	->add_tab( __( 'Internal Notes' ), array(
 		Field::make( 'textarea', 'notes', __( 'Notes') ),
+  ))
+	->add_tab( __( 'Internal Aggregation' ), array(
+
+		Field::make( 'text', 'min_price', __( 'min_price') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+		Field::make( 'text', 'max_price', __( 'max_price') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'text', 'min_size', __( 'min_size') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+		Field::make( 'text', 'max_size', __( 'max_size') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'text', 'min_rooms', __( 'min_rooms') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+		Field::make( 'text', 'max_rooms', __( 'max_rooms') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'text', 'min_salons', __( 'min_salons') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+		Field::make( 'text', 'max_salons', __( 'max_salons') )
+		->set_attribute( 'readOnly', 'readOnly' )
+		->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'checkbox', 'has_villa', __( 'has_villa' ) )
+		->set_option_value( '1' )
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'checkbox', 'has_duplex', __( 'has_duplex' ) )
+		->set_option_value( '1' )
+		->set_visible_in_rest_api(true),
+
+		Field::make( 'checkbox', 'has_penthouse', __( 'has_penthouse' ) )
+		->set_option_value( '1' )
+		->set_visible_in_rest_api(true),
+
+
+
   ));
 
 // phpcs:enable
