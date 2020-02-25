@@ -169,11 +169,11 @@ add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
 		$rooms = array_map(function ($obj) {return $obj['rooms_count'];}, $apartments);
     $salons = array_map(function ($obj) {return $obj['salons_count'];}, $apartments);
 
-    $villa = array_map(function ($obj) {return $obj['is_duplex'];}, $apartments);
-    $duplex = array_map(function ($obj) {return $obj['is_villa'];}, $apartments);
+    $villa = array_map(function ($obj) {return $obj['is_villa'];}, $apartments);
+    $duplex = array_map(function ($obj) {return $obj['is_duplex'];}, $apartments);
     $penthouse = array_map(function ($obj) {return $obj['is_penthouse'];}, $apartments);
     
-    
+
     carbon_set_post_meta( $post_id, 'min_price', intval(min($prices)) );
     carbon_set_post_meta( $post_id, 'max_price', intval(max($prices)) );
 
