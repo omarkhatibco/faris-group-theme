@@ -166,8 +166,7 @@ add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
 
     $prices = array_map(function ($obj) { return $obj['price']; }, $apartments);
 		$sizes = array_map(function ($obj) {return $obj['min_size'];}, $apartments);
-		$rooms = array_map(function ($obj) {return $obj['rooms_count'];}, $apartments);
-    $salons = array_map(function ($obj) {return $obj['salons_count'];}, $apartments);
+		$rooms = array_map(function ($obj) {return $obj['rooms_count'] + $obj['salons_count'];}, $apartments);
 
     $villa = array_map(function ($obj) {return $obj['is_villa'];}, $apartments);
     $duplex = array_map(function ($obj) {return $obj['is_duplex'];}, $apartments);
@@ -182,9 +181,6 @@ add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
 
     carbon_set_post_meta( $post_id, 'min_rooms',  intval(min($rooms)) );
     carbon_set_post_meta( $post_id, 'max_rooms',  intval(max($rooms)) );
-
-    carbon_set_post_meta( $post_id, 'min_salons', intval(min($salons)) );
-    carbon_set_post_meta( $post_id, 'max_salons', intval(max($salons)) );
 
     carbon_set_post_meta( $post_id, 'has_villa', in_array(true, $villa) ? 1 : '' );
     carbon_set_post_meta( $post_id, 'has_duplex', in_array(true, $duplex) ? 1 : '' );

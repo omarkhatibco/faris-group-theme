@@ -197,14 +197,14 @@ Container::make( 'post_meta', __( 'Property Data') )
 		->set_attribute( 'placeholder', 'Will be showen after you save.' )
 		->set_visible_in_rest_api(true),
 
-		Field::make( 'text', 'min_salons', __( 'min_salons') )
-		->set_attribute( 'readOnly', 'readOnly' )
-		->set_attribute( 'placeholder', 'Will be showen after you save.' )
-		->set_visible_in_rest_api(true),
-		Field::make( 'text', 'max_salons', __( 'max_salons') )
-		->set_attribute( 'readOnly', 'readOnly' )
-		->set_attribute( 'placeholder', 'Will be showen after you save.' )
-		->set_visible_in_rest_api(true),
+		// Field::make( 'text', 'min_salons', __( 'min_salons') )
+		// ->set_attribute( 'readOnly', 'readOnly' )
+		// ->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		// ->set_visible_in_rest_api(true),
+		// Field::make( 'text', 'max_salons', __( 'max_salons') )
+		// ->set_attribute( 'readOnly', 'readOnly' )
+		// ->set_attribute( 'placeholder', 'Will be showen after you save.' )
+		// ->set_visible_in_rest_api(true),
 
 		Field::make( 'checkbox', 'has_villa', __( 'has_villa' ) )
 		->set_option_value( '1' )
