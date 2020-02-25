@@ -28,7 +28,7 @@ class AggregationController
 
 
 
-		$posts = query_posts( [ 
+		$posts = query_posts([ 
 			'post_type' => 'property',
 			'posts_per_page' => -1
 		]);

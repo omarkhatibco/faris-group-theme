@@ -110,6 +110,33 @@ add_filter('rest_property_collection_params', function ($params) {
 
 
 add_filter( 'rest_prepare_property', function( $response, $property, $request ) {
+  $id = $property->ID;
+
+  $attachmentsIds =  carbon_get_post_meta( $id, 'attachments' );
+  $media_galleryIds =  carbon_get_post_meta( $id, 'media_gallery' );
+
+
+  $media_gallery = array_map(function($id) {
+    return [
+      'id' => $id,
+      'src' => wp_get_attachment_url($id),
+      'alt_text' => get_post_meta( $id, '_wp_attachment_image_alt', true)
+    ];
+  }, $media_galleryIds);
+
+  $attachments = array_map(function($id) {
+    return [
+      'id' => $id,
+      'src' => wp_get_attachment_url($id),
+      'title' => get_the_title( $id),
+      'mime_type' => get_post_mime_type( $id)
+    ];
+  }, $attachmentsIds);
+ 
+
+
+
+
    $getPrice = function ($obj) {
       return $obj['price'];
     };
@@ -119,7 +146,7 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
     };
     
     
-    $id = $property->ID;
+    
     $apartments = carbon_get_post_meta( $id, 'appartments' );
 
     $prices = array_map($getPrice, $apartments);
@@ -129,6 +156,9 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
      $response->data[ 'min_size' ]  = intval(min($sizes));
      $response->data[ 'max_price' ] = intval(max($prices));
      $response->data[ 'max_size' ]  = intval(max($sizes));
+
+     $response->data[ 'attachments_data' ]  = $attachments;
+     $response->data[ 'media_gallery_data' ]  = $media_gallery;
 
     return $response;
 }, 10, 3 );
