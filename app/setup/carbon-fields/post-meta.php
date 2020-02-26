@@ -66,6 +66,10 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
+			Field::make( 'checkbox', 'is_inslider', __( 'is in Slider ?' ) )
+			->set_option_value( '1' )
+			->set_visible_in_rest_api(true),
+			
 	))
 	->add_tab( __( 'Appartment Informations ' ), array(
 		Field::make('complex', 'appartments', __('Appartment Informations '))
