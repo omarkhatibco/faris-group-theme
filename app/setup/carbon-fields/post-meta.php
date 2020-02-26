@@ -62,11 +62,11 @@ Container::make( 'post_meta', __( 'Property Data') )
 			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
-			Field::make( 'checkbox', 'is_featured', __( 'Show this in Slider ?' ) )
+			Field::make( 'checkbox', 'is_featured_slider', __( 'Show this in Slider ?' ) )
 			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 
-			Field::make( 'checkbox', 'is_inslider', __( 'is in Slider ?' ) )
+			Field::make( 'checkbox', 'is_featured_homepage', __( 'Show on Homepage' ) )
 			->set_option_value( '1' )
 			->set_visible_in_rest_api(true),
 			
