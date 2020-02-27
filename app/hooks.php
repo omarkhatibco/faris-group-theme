@@ -140,12 +140,10 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
 }, 10, 3 );
 
 
-
-function add_rand_orderby_rest_property_collection_params( $query_params ) {
+add_filter( 'rest_property_collection_params', function ( $query_params ) {
 	$query_params['orderby']['enum'][] = 'rand';
 	return $query_params;
-}
-add_filter( 'rest_post_collection_params', 'add_rand_orderby_rest_post_collection_params' );
+} );
 
 
 
