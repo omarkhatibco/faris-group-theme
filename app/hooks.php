@@ -141,11 +141,12 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
 
 
 
-add_action( 'save_post',function ( $post_id ) {
-  
+function add_rand_orderby_rest_property_collection_params( $query_params ) {
+	$query_params['orderby']['enum'][] = 'rand';
+	return $query_params;
+}
+add_filter( 'rest_post_collection_params', 'add_rand_orderby_rest_post_collection_params' );
 
-
-});
 
 
 add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
