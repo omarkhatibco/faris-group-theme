@@ -117,10 +117,13 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
 
 
   $media_gallery = array_map(function($id) {
+    $img = wp_get_attachment_image_src( $id ,'full' );
     return [
       'id' => $id,
-      'src' => wp_get_attachment_url($id),
-      'alt_text' => get_post_meta( $id, '_wp_attachment_image_alt', true)
+      'src' => $img[0],
+      'width'=> $img[1],
+      'height'=>$img[2],
+      'alt' => get_post_meta( $id, '_wp_attachment_image_alt', true)
     ];
   }, $media_galleryIds);
 
