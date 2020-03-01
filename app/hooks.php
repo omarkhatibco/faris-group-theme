@@ -114,6 +114,8 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
 
   $attachmentsIds =  carbon_get_post_meta( $id, 'attachments' );
   $media_galleryIds =  carbon_get_post_meta( $id, 'media_gallery' );
+  $locations = wp_get_post_terms( $id, 'property_locations');
+
 
 
   $media_gallery = array_map(function($id) {
@@ -138,6 +140,7 @@ add_filter( 'rest_prepare_property', function( $response, $property, $request ) 
  
      $response->data[ 'attachments_data' ]  = $attachments;
      $response->data[ 'media_gallery_data' ]  = $media_gallery;
+     $response->data[ 'locations_data' ]  = $locations;
 
     return $response;
 }, 10, 3 );
@@ -186,5 +189,6 @@ add_action( 'carbon_fields_post_meta_container_saved', function ( $post_id ) {
     carbon_set_post_meta( $post_id, 'has_villa', in_array(true, $villa) ? 1 : '' );
     carbon_set_post_meta( $post_id, 'has_duplex', in_array(true, $duplex) ? 1 : '' );
     carbon_set_post_meta( $post_id, 'has_penthouse', in_array(true, $penthouse) ? 1 : '' );
-  
+    
+
 });
