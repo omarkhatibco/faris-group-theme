@@ -18,36 +18,21 @@ Container::make( 'theme_options', __( 'Theme Options') )
 		Field::make( 'text', 'crb_google_maps_api_key', __( 'Google Maps API Key') ),
 		Field::make( 'text', 'fg_openexchangerates_api_key', __( 'Open Exchange Rates.org API Key') ),
 		Field::make( 'text', 'fg_contact_email', __( 'Contact Email') ),
-		Field::make('complex', 'fgw_socials', __('Social Media'))
-			->set_collapsed(true)
-			->add_fields(array(
-				Field::make('select', 'type', __('Social Media Type', 'mtw'))
-					->set_options(array(
-						'facebook' => 'Facebook',
-						'instagram' => 'Instagram',
-						'twitter' => 'Twitter',
-						'youtube' => 'Youtube',
-						'linkedin' => 'LinkedIn',
-					)),
-				Field::make('urlpicker', 'link', __('URL', 'mtw'))
-					->set_help_text('Enter your Link url'),
-			))
-			->set_header_template('Social Network: <%- type %>'),
+		
+		Field::make( 'separator', 'fg_separator1', __( 'About Us Options' ) ),
 
-			Field::make( 'separator', 'fg_separator1', __( 'About Us Options' ) ),
+		Field::make( 'image', 'fgw_aboutus_intro_image', __( 'Intro Image' ) )
+		->set_value_type( 'url' ),
+		Field::make( 'image', 'fgw_aboutus_service_image', __( 'Service Image' ) )
+		->set_value_type( 'url' ),
+		Field::make( 'image', 'fgw_aboutus_whyus_image', __( 'Why Us Image' ) )
+		->set_value_type( 'url' ),
+		Field::make( 'oembed', 'fgw_aboutus_intro_video', __( 'About Us Video' ) ),
 
-			Field::make( 'image', 'fgw_aboutus_intro_image', __( 'Intro Image' ) )
-			->set_value_type( 'url' ),
-			Field::make( 'image', 'fgw_aboutus_service_image', __( 'Service Image' ) )
-			->set_value_type( 'url' ),
-			Field::make( 'image', 'fgw_aboutus_whyus_image', __( 'Why Us Image' ) )
-			->set_value_type( 'url' ),
-			Field::make( 'oembed', 'fgw_aboutus_intro_video', __( 'About Us Video' ) ),
+		Field::make( 'separator', 'fg_separator2', __( 'Properties Options' ) ),
 
-			Field::make( 'separator', 'fg_separator2', __( 'Properties Options' ) ),
-
-			Field::make( 'image', 'fgw_properties_intro_image', __( 'Properties Image' ) )
-			->set_value_type( 'url' ),
+		Field::make( 'image', 'fgw_properties_intro_image', __( 'Properties Image' ) )
+		->set_value_type( 'url' ),
 
 	) );
 

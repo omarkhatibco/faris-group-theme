@@ -48,7 +48,6 @@ class ConfigController
 
 
 		$config = [
-			'social' => carbon_get_theme_option('fgw_socials'),
 			'aboutUs' => $aboutUs,
 			'properties' => $properties,
 			'currency' => $currency
