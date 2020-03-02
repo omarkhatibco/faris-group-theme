@@ -131,8 +131,8 @@ Container::make( 'post_meta', __( 'Property Data') )
 					->set_attribute( 'min', '0' ),
 					Field::make( 'select', 'value_type', __( 'Value Type') )
 					->set_options([
-							'hour' => 'Hour',
 							'minute' => 'Minute',
+							'hour' => 'Hour',
 							'kilometer' => 'Kilometer',
 							'meter' => 'Meter',
 					]),
