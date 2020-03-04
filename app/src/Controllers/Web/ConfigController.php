@@ -53,7 +53,16 @@ class ConfigController
 			'currency' => $currency
 		];
 
-		header("Access-Control-Allow-Origin: *");
+		$origin = $_SERVER['HTTP_ORIGIN'];
+		$allowed_domains = [
+    'https://faris-group.com',
+    'https://www.faris-group.com',
+		];
+
+		if (in_array($origin, $allowed_domains)) {
+				header('Access-Control-Allow-Origin: ' . $origin);
+		}
+		
 		return \WPEmerge\json($config);
 	}
 
