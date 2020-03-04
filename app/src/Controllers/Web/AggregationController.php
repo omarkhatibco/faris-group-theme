@@ -48,6 +48,8 @@ class AggregationController
       'rooms_type'  => array_values(array_unique($rooms_type))
 		];
 
+
+		header("Access-Control-Allow-Origin: ". parse_url(home_url('/'))['host']);
 		return \WPEmerge\json($json);
 	}
 

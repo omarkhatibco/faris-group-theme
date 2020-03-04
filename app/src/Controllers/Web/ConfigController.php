@@ -52,7 +52,8 @@ class ConfigController
 			'properties' => $properties,
 			'currency' => $currency
 		];
-
+		
+		header("Access-Control-Allow-Origin: ". parse_url(home_url('/'))['host']);
 		return \WPEmerge\json($config);
 	}
 
