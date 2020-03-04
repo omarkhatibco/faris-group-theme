@@ -38,7 +38,6 @@ class AggregationController
 		$rooms_string = implode(",", array_map(function ($obj) { return $obj['rooms_type']; }, $data));
 		$rooms_type = explode(",", $rooms_string);
 
-		
 
 		$json = [
 			'min_price' => intval(min(array_map(function ($obj) { return $obj['min_price']; }, $data))),
@@ -49,7 +48,7 @@ class AggregationController
 		];
 
 
-		header("Access-Control-Allow-Origin: ". parse_url(home_url('/'))['host']);
+		header("Access-Control-Allow-Origin: *");
 		return \WPEmerge\json($json);
 	}
 
