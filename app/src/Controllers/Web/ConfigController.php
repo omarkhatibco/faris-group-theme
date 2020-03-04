@@ -60,7 +60,6 @@ class ConfigController
 		];
 
 		if (in_array($origin, $allowed_domains)) {
-				header('Access-control-allow-methods: POST');
 				header('Access-Control-Allow-Origin: ' . $origin);
 		}
 
