@@ -61,12 +61,9 @@ class ContactController
 		$json = [
 			'message'=> 'ok'
 		];
-		
+
 		header("Access-Control-Allow-Origin: *");
 		return \WPEmerge\json($json);
 	}
 
 }
-
-
-
