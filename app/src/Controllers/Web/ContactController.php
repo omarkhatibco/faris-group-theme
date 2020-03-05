@@ -70,9 +70,9 @@ class ContactController
 
 		if (in_array($origin, $allowed_domains)) {
 				header('Access-control-allow-methods: POST');
-				header('Access-Control-Allow-Origin: ' . $origin);
+			
 		}
-
+		header('Access-Control-Allow-Origin: *');
 		return \WPEmerge\json($json);
 	}
 
